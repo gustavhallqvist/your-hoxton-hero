@@ -3,7 +3,8 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.where(user: current_user).reverse
-    @booking_requests = current_user.tasks.map { |task| task.bookings}
+    @bookings = Booking.where(user: current_user).reverse
+    @booking_requests = current_user.tasks.map { |task| task.bookings }
   end
 
   def new
