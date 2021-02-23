@@ -10,7 +10,7 @@ puts 'Clearing database'
 
 Category.destroy_all
 
-Categories = ['Driving', 'Shopping', 'Errand', 'Cooking', 'Cleaning', 'Babysitting']
+Categories = ['Errand', 'Shopping', 'Driving', 'Cooking', 'Cleaning', 'Gardening', 'Babysitting', 'Dog Walking', 'Companion', 'Other']
 
 puts 'Creating Categories'
 
@@ -18,4 +18,4 @@ Categories.each do |category|
   Category.create(name: category)
 end
 
-puts "Succesfully created #{Category.size} Categories"
+puts "Succesfully created #{Category.count} Categories"
