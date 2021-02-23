@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Clearing database'
+
+Category.destroy_all
+
+Categories = ['Driving', 'Shopping', 'Errand', 'Cooking', 'Cleaning', 'Babysitting']
+
+puts 'Creating Categories'
+
+Categories.each do |category|
+  Category.create(name: category)
+end
+
+puts "Succesfully created #{Category.size} Categories"
