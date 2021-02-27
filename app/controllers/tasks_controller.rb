@@ -2,9 +2,10 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.where(user: current_user).reverse
-    @bookings = Booking.where(user: current_user).reverse
-    @booking_requests = current_user.tasks.map { |task| task.bookings }
+    @tasks = policy_scope(Task).order(created_at: :desc)
+    # @tasks = Task.where(user: current_user).reverse
+    # @bookings = Booking.where(user: current_user).reverse
+    # @booking_requests = current_user.tasks.map { |task| task.bookings }
   end
 
   def new
@@ -13,6 +14,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    authorize @task
     @task.user = current_user
     if @task.save
       redirect_to tasks_path
@@ -39,6 +41,7 @@ private
 
   def set_task
     @task = Task.find(params[:id])
+    authorize @task
   end
 
   def task_params
