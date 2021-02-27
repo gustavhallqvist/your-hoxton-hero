@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_113439) do
+ActiveRecord::Schema.define(version: 2021_02_27_152246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "booking_id", null: false
+    t.integer "rating"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_booking_reviews_on_booking_id"
+    t.index ["user_id"], name: "index_booking_reviews_on_user_id"
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -29,6 +40,17 @@ ActiveRecord::Schema.define(version: 2021_02_27_113439) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "task_reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.integer "rating"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_task_reviews_on_task_id"
+    t.index ["user_id"], name: "index_task_reviews_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -63,8 +85,12 @@ ActiveRecord::Schema.define(version: 2021_02_27_113439) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "booking_reviews", "bookings"
+  add_foreign_key "booking_reviews", "users"
   add_foreign_key "bookings", "tasks"
   add_foreign_key "bookings", "users"
+  add_foreign_key "task_reviews", "tasks"
+  add_foreign_key "task_reviews", "users"
   add_foreign_key "tasks", "categories"
   add_foreign_key "tasks", "users"
 end
