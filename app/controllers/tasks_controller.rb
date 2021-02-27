@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
     @tasks = policy_scope(Task).order(created_at: :desc)

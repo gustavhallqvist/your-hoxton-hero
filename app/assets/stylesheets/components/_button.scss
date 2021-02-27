@@ -1,0 +1,35 @@
+.btn-green {
+  width: 100px;
+  height: 40px;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 8px;
+  background: rgba(138, 171, 137, 0.9);
+  transition: background 0.3s ease;
+  box-shadow: 0 0 20px #eee;
+  text-decoration: none !important;
+}
+
+.btn-green:hover {
+  background: #6e896e;
+  color: white;
+  text-decoration: none !important;
+}
+
+
+.btn-red {
+  width: 100px;
+  height: 40px;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 8px;
+  background: rgba(255, 77, 52, 0.9);
+  transition: background 0.3s ease;
+  box-shadow: 0 0 20px #eee;
+  text-decoration: none !important;
+}
+.btn-red:hover {
+  background: #cc3e2a;
+  color: white;
+  text-decoration: none !important;
+}
