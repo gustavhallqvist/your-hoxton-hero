@@ -10,7 +10,10 @@ class TasksController < ApplicationController
   end
 
   def new
+
     @task = Task.new
+    authorize @task
+
   end
 
   def create

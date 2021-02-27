@@ -1,6 +1,8 @@
+<div class="container mt-1">
 <%= simple_form_for (@task) do |f| %>
   <%= f.association :category, error: 'Please choose a category'%>
   <%= f.input :description %>
   <%= f.input :date %>
   <%= f.submit "Create Task", class: "btn btn-primary" %>
 <% end %>
+</div>
