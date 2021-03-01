@@ -16,7 +16,6 @@
   text-decoration: none !important;
 }
 
-
 .btn-red {
   width: 100px;
   height: 40px;
@@ -32,4 +31,17 @@
   background: #cc3e2a;
   color: white;
   text-decoration: none !important;
+}
+
+.btn-outline {
+  color: #3A6B7E;
+  border: solid #3A6B7E;
+  transition: background 0.3s ease;
+  border-radius: 8px;
+  padding: 8px 24px;
+  background: white;
+}
+
+.btn-outline:hover {
+  opacity: 1;
 }

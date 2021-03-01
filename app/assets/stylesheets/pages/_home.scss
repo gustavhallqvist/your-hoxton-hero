@@ -1,1 +1,55 @@
 // Specific CSS for your home-page
+.home_banner {
+  background-image: asset_url("hero_banner.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 150px 0;
+  background-size: 51%;
+}
+
+.home_banner h1 {
+  margin: 0;
+  font-size: 72px;
+  font-weight: 800;
+  padding: 0px;
+  width: 540px;
+  line-height: 98px;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+}
+
+.home_banner p {
+  width: 540px;
+  height: 64px;
+  font-size: 20px;
+  margin-top: 16px;
+  line-height: 32px;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+}
+
+.btn-home {
+  background: rgba(138, 171, 137, 0.9);
+  width: 196px;
+  margin: 0px;
+  margin-top: 50px;
+  padding: 16px 28px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 8px;
+  display: block;
+}
+
+.btn-home:hover {
+  background: #6e896e;
+  color: #fff;
+  text-decoration: none;
+}
+
+.home_wrapper {
+  padding: 40px;
+  background-image: linear-gradient(180deg, #FFFFFF 20%, rgba(250, 204, 85, 0.05), rgba(250, 204, 85, 0.4));
+}

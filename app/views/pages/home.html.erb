@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- banner -->
+
+<div class="home_banner">
+  <div class="container">
+    <h1>Find your local hero today</h1>
+    <p>The community platform connecting neighbours-in-need with local volunteers</p>
+    <%= link_to "Get started", tasks_path, class: "btn-home" %>
+  </div>
+</div>
+<!-- search bar -->
+
+<div class="home_wrapper">
+  <h2 class="text-center">Help from your hero, whenever you need it</h2>
+    <div class="container">
+      <%= render "shared/search" %>
+    </div>
+<!-- icon grid -->
+
+
+  </div>
+</div>

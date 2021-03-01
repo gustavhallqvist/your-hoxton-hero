@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center" style="padding: 32px">
+  <%= form_tag tasks_path, method: :get, class: "search-home" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Check your local area for available heroes"%>
+  <%= submit_tag "Search my area", class: "btn-outline" %>
+<% end %>
+</div>
