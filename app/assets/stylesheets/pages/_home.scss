@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-position: right;
   padding: 150px 0;
-  background-size: 51%;
+  background-size: 48%;
 }
 
 .home_banner h1 {
@@ -16,6 +16,7 @@
   width: 540px;
   line-height: 98px;
   text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  letter-spacing: 2px;
 }
 
 .home_banner p {
@@ -25,6 +26,7 @@
   margin-top: 16px;
   line-height: 32px;
   text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
 }
 
 .btn-home {
@@ -41,6 +43,7 @@
   box-shadow: 0 0 20px #eee;
   border-radius: 8px;
   display: block;
+  letter-spacing: 1px;
 }
 
 .btn-home:hover {
@@ -51,5 +54,34 @@
 
 .home_wrapper {
   padding: 40px;
+  padding-bottom: 80px;
   background-image: linear-gradient(180deg, #FFFFFF 20%, rgba(250, 204, 85, 0.05), rgba(250, 204, 85, 0.4));
+}
+
+.icon_card_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 32px;
+}
+
+.icon_card {
+  // background-size: cover;
+  background-position: center;
+  background: white;
+  height: 128px;
+  width: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3A6B7E;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.testimonial_wrapper {
+  padding: 40px;
+  padding-bottom: 80px;
+  background: rgba(138, 171, 137, 0.1);
 }
