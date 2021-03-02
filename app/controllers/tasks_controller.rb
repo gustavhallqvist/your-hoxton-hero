@@ -7,6 +7,12 @@ class TasksController < ApplicationController
     # @tasks = Task.where(user: current_user).reverse
     # @bookings = Booking.where(user: current_user).reverse
     # @booking_requests = current_user.tasks.map { |task| task.bookings }
+    @markers = @tasks.geocoded.map do |task|
+      {
+        lat: task.latitude,
+        lng: task.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { task: task })
+      }
   end
 
   def new
