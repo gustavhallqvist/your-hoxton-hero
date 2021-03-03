@@ -54,7 +54,7 @@
 
 .home_wrapper {
   padding: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
   background-image: linear-gradient(180deg, #FFFFFF 20%, rgba(250, 204, 85, 0.05), rgba(250, 204, 85, 0.4));
 }
 
@@ -80,8 +80,35 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
+.icon_card:hover{
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
 .testimonial_wrapper {
   padding: 40px;
   padding-bottom: 80px;
   background: rgba(138, 171, 137, 0.1);
+}
+
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .icon_card_grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .icon_card_grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .icon_card_grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
 }
