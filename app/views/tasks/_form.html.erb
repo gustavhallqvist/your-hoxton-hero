@@ -6,12 +6,12 @@
     collection_wrapper_class: 'category-wrapper',
     item_wrapper_class: 'category-item',
     input_html: {class: 'category-selector'}
-
     %>
 
 
   <%= f.input :description %>
-  <%= f.input :date %>
+  <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+
   <%= f.submit "Create Task", class: "btn btn-primary" %>
 <% end %>
 </div>
