@@ -1,12 +1,11 @@
-card-booking {
+.card-booking {
   overflow: hidden;
-  height: 170px;
+  height: 160px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content: space-between;
   border-radius: 6px;
-
 }
 
 .card-booking img {
