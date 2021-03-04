@@ -1,1 +1,114 @@
 // Specific CSS for your home-page
+.home_banner {
+  background-image: asset_url("hero_banner.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 150px 0;
+  background-size: 48%;
+}
+
+.home_banner h1 {
+  margin: 0;
+  font-size: 72px;
+  font-weight: 800;
+  padding: 0px;
+  width: 540px;
+  line-height: 98px;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  letter-spacing: 2px;
+}
+
+.home_banner p {
+  width: 540px;
+  height: 64px;
+  font-size: 20px;
+  margin-top: 16px;
+  line-height: 32px;
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
+}
+
+.btn-home {
+  background: rgba(138, 171, 137, 0.9);
+  width: 196px;
+  margin: 0px;
+  margin-top: 50px;
+  padding: 16px 28px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 8px;
+  display: block;
+  letter-spacing: 1px;
+}
+
+.btn-home:hover {
+  background: #6e896e;
+  color: #fff;
+  text-decoration: none;
+}
+
+.home_wrapper {
+  padding: 40px;
+  padding-bottom: 120px;
+  background-image: linear-gradient(180deg, #FFFFFF 20%, rgba(250, 204, 85, 0.05), rgba(250, 204, 85, 0.4));
+}
+
+.icon_card_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 32px;
+}
+
+.icon_card {
+  // background-size: cover;
+  background-position: center;
+  background: white;
+  height: 128px;
+  width: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3A6B7E;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.icon_card:hover{
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.testimonial_wrapper {
+  padding: 40px;
+  padding-bottom: 80px;
+  background: rgba(138, 171, 137, 0.1);
+}
+
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .icon_card_grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .icon_card_grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .icon_card_grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}

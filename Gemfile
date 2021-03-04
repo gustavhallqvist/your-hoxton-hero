@@ -31,7 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Imported Gems
 gem 'devise'
 gem 'pundit'
-
+gem 'geocoder'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

@@ -22,3 +22,52 @@
 .review-stars {
   width: 200px;
 }
+.btn-green {
+  width: 100px;
+  height: 40px;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 8px;
+  background: rgba(138, 171, 137, 0.9);
+  transition: background 0.3s ease;
+  box-shadow: 0 0 20px #eee;
+  text-decoration: none !important;
+}
+
+.btn-green:hover {
+  background: #6e896e;
+  color: white;
+  text-decoration: none !important;
+}
+
+.btn-red {
+  width: 100px;
+  height: 40px;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 8px;
+  background: rgba(255, 77, 52, 0.9);
+  transition: background 0.3s ease;
+  box-shadow: 0 0 20px #eee;
+  text-decoration: none !important;
+}
+.btn-red:hover {
+  background: #cc3e2a;
+  color: white;
+  text-decoration: none !important;
+}
+
+.btn-outline {
+  color: #3A6B7E;
+  border: 2px solid #3A6B7E;
+  transition: background 0.3s ease;
+  border-radius: 8px;
+  padding: 8px 24px;
+  background: white;
+}
+
+.btn-outline:hover {
+  opacity: 1;
+  background: #3A6B7E;
+  color: white;
+}
