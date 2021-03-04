@@ -13,13 +13,12 @@ class TasksController < ApplicationController
         lng: task.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { task: task })
       }
+    end
   end
 
   def new
-
     @task = Task.new
     authorize @task
-
   end
 
   def create

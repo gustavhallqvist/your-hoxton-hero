@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_162540) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
     t.float "latitude"
-    t.float "longtitude"
+    t.float "longitude"
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

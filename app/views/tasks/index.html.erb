@@ -1,49 +1,18 @@
-<div class="container" style="position:relative; top:70px;">
+<div class="container p-0" style="position:relative; top:30px;">
   <h1>Available Tasks</h1>
-
-  <% @tasks.each do |task|  %>
-  <div class="card-booking my-5">
-      <div class="d-flex card-inner">
-        <div class="card-booking-infos" >
-          <h2><%= link_to task.category, task_path(task) %></h2>
-          <p> Your Booking Date: <%= task.date.strftime("%Y-%M-%D") %></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-
-
-
-
-
-  <% @tasks.each do |task|  %>
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"> <%= task.category %></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="row d-flex justify-content-center">
+      <div class="col w-50">
+        <% @tasks.each do |task|  %>
+        <div class="card-booking my-2">
+            <div class="d-flex card-inner">
+              <div class="card-booking-infos" >
+                <h2><%= link_to task.category.name, task_path(task) %></h2>
+                <p>When: <%= task.date %></p>
+              </div>
+            </div>
           </div>
-          <div class="modal-body">
-            <%= task.description %>
-          </div>
-          <div class="modal-footer d-flex justify-content-between align-items-center">
-            <button type="button" class="btn btn-new-primary btn-sm" data-dismiss="modal">Close</button>
-          </div>
-        </div>
+        <% end %>
       </div>
+      <div class="col w-50 my-2" id="map" style="width: 50%; height: 100vh;"data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
-
-    <div class="card-booking my-5">
-      <div class="d-flex card-inner">
-        <div class="card-booking-infos" >
-          <h2><%= link_to task.category, task_path(task) %></h2>
-          <p> Your Booking Date: <%= task.date.strftime("%Y-%M-%D") %></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
+</div>
