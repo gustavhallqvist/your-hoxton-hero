@@ -2,6 +2,7 @@
 <%= simple_form_for (@task) do |f| %>
   <%= f.association :category, error: 'Please choose a category'%>
   <%= f.input :description %>
+  <%= f.input :address %>
   <%= f.input :date %>
   <%= f.submit "Create Task", class: "btn btn-primary" %>
 <% end %>
