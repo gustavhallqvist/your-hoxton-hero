@@ -10,7 +10,7 @@ puts 'Clearing database'
 
 Category.destroy_all
 
-Categories = ['Errand', 'Shopping', 'Driving', 'Cooking', 'Cleaning', 'Gardening', 'Babysitting', 'Dog Walking', 'Companion', 'Other']
+Categories = ['Errand', 'Shopping', 'Driving', 'Cooking', 'Cleaning', 'Gardening', 'Babysitting', 'Dog Walking', 'Companion']
 
 puts 'Creating Categories'
 

@@ -1,0 +1,24 @@
+.btn-new-primary {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2BBBAD;
+  transition: background 0.3s ease;
+}
+
+.btn-new-primary:hover {
+  background: #27a89c;
+  color: white;
+}
+
+.btn-review{
+ color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2BBBAD;
+  transition: background 0.3s ease;
+  height: 40px;
+}
+.review-stars {
+  width: 200px;
+}
