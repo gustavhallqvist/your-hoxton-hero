@@ -1,0 +1,87 @@
+// dashboard grid
+.grid-container {
+  display: grid;
+  grid-template-columns: 270px 1fr 270px;
+  grid-template-rows: 70px 1fr 70px;
+  grid-template-areas:
+    "sidenav header chat"
+    "sidenav main chat";
+
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  background-color: rgba(138, 171, 137, 0.9);
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+}
+
+.sidenav {
+  grid-area: sidenav;
+  background-color: rgba(138, 171, 137, 0.1);
+  position: fixed;
+  width: 270px;
+  height: 100vh;
+}
+
+.main {
+  grid-area: main;
+  background-color: white;
+}
+
+.chat {
+  grid-area: chat;
+  background-color: rgba(250, 204, 85, 0.2);
+}
+
+.sidenav__list {
+  padding: 0;
+  margin-top: 16px;
+  list-style-type: none;
+}
+
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  color: rgba(138, 171, 137, 0.9);
+}
+
+.sidenav__list-item:hover {
+  background-color: rgba(138, 171, 137, 0.3);
+  cursor: pointer;
+}
+
+.profile_font {
+  text-align: center;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.dashboard_card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 4px;
+}
+
+.btn_dashboard {
+  color: #3A6B7E;
+  width: 200px;
+  height: 40px;
+  transition: background 0.3s ease;
+  border-radius: 8px;
+  background: white;
+  justify-content: space-around;
+  text-align: center;
+  padding: 8px 24px;
+  box-shadow: 0 0 16px rgba(138, 171, 137, 0.1);
+}
+
+.btn_dashboard:hover {
+  // opacity: 1;
+  background: transparent;
+  color: white;
+  text-decoration: none !important;
+  border: 1px solid white;
+}
+
