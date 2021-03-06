@@ -26,8 +26,8 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     authorize @task
     @task.user = current_user
-    if @task.save
-      redirect_to tasks_path
+      if @task.save
+      redirect_to task_path(@task)
     else
       render :new
     end
