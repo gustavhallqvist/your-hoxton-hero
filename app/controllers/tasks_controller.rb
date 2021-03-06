@@ -25,6 +25,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     authorize @task
     @task.user = current_user
+    raise
     if @task.save
       redirect_to tasks_path
     else
