@@ -1,8 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @bookings = Booking.where(user: current_user).reverse
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @user = current_user
   end
 
   def new

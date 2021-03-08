@@ -1,0 +1,63 @@
+<!-- profile page / user dashboard / your bookings list -->
+
+<!-- dashboard -->
+<div class="grid-container">
+
+  <header class="header">
+    <%= link_to "Confirm A Task", '#', class: "btn_dashboard mt-2" %>
+    <br>
+    <%= link_to "Post A New Task", new_task_path, class: "btn_dashboard mt-2" %>
+  </header>
+
+  <aside class="sidenav">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: 'avatar-profile', alt: "alttext" %>
+    <h6 class="profile_font"> Hello <%= current_user.name %>!</h6>
+    <ul class="sidenav__list">
+      <li class="sidenav__list-item">Dashboard</li>
+      <li class="sidenav__list-item">Profile</li>
+      <li class="sidenav__list-item">Tasks</li>
+      <li class="sidenav__list-item">Messages</li>
+      <li class="sidenav__list-item">Reviews</li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="container">
+      <div id="Dashboard" class="tabcontent">
+       <h6>Dashboard</h6>
+      </div>
+
+      <div id="Profile" class="tabcontent">
+        <h6>My Profile</h6>
+        <div class="dashboard_card">
+          <p>insert form</p>
+
+        </div>
+      </div>
+
+      <div id="Tasks" class="tabcontent">
+        <h6>Tasks</h6>
+        <div class="dashboard_card">
+          <p>insert tasks confirmed / pending / history</p>
+          <h6>Your Confirmed Tasks</h6>
+        </div>
+      </div>
+
+      <div id="Messages" class="tabcontent">
+        <h6>Messages</h6>
+        <div class="dashboard_card">
+          <p>insert chat history?</p>
+        </div>
+      </div>
+
+      <div id="Reviews" class="tabcontent">
+        <h6>Reviews</h6>
+        <div class="dashboard_card">
+          <p>reviews as a hero & neighbour in need</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <chat class="chat"></chat>
+</div>

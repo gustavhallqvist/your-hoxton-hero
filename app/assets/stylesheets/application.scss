@@ -11,10 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "tasks/index";
 
 body {
   background: white;
   color: #264653;
+  padding-top: 50px;
 }
 
 a {
