@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
+import { initChatroomCable } from '../channels/chatroom_channel';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initFlatpickr } from '../plugins/init_flatpickr.js';
 
@@ -34,6 +35,7 @@ import { initFlatpickr } from '../plugins/init_flatpickr.js';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initChatroomCable();
   initMapbox();
   initUpdateNavbarOnScroll();
   initFlatpickr();

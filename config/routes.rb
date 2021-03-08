@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   end
   resources :booking_reviews, only: [:show, :edit, :update, :destroy]
   resources :task_reviews, only: [:show, :edit, :update, :destroy]
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

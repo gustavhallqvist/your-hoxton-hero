@@ -30,10 +30,10 @@ User.create(email: 'admin@yourhoxtonhero.com', password: 'yourhoxtonhero', name:
 
 puts 'Creating Users'
 
-User.create(email: 'bob@gmail.com', password: 'yourhoxtonhero', name: 'Bob', surname: 'Wallace' , address: 'Fulham, London', contact_number: '07775127846', date_of_birth: Date.parse("10/10/1954"), bio: 'Single man living along in Fulham', disability: 'None',   admin: false)
-User.create(email: 'sarah@gmail.com', password: 'yourhoxtonhero', name: 'Sarah', surname: 'Mayles', address: 'Hoxton, London', contact_number: '07775127566', date_of_birth: Date.parse("04/09/1979"), bio: 'Single mother with 3 kids and a full-time job', disability: 'None',   admin: false)
-User.create(email: 'will@gmail.com', password: 'yourhoxtonhero', name: 'Will', surname: 'Hill' , address: 'Shoreditch, London', contact_number: '07773327846', date_of_birth: Date.parse("22/04/1982"), bio: 'Suffering with Cerebral Palsy' , disability: 'Cerebral Palsy',   admin: false)
-User.create(email: 'lucy@yahoo.com', password: 'yourhoxtonhero', name: 'Lucy', surname: 'Silver', address: 'Clapham, London' , contact_number: '07775127849', date_of_birth: Date.parse("15/02/1951"), bio: 'Widow living alone in Clapham', disability: 'None',   admin: false)
+User.create(email: 'kirsti@gmail.com', password: 'yourhoxtonhero', name: 'Bob', surname: 'Wallace' , address: 'Fulham, London', contact_number: '07775127846', date_of_birth: Date.parse("10/10/1954"), bio: 'Single man living along in Fulham', disability: 'None',   admin: false)
+User.create(email: 'tony@gmail.com', password: 'yourhoxtonhero', name: 'Sarah', surname: 'Mayles', address: 'Hoxton, London', contact_number: '07775127566', date_of_birth: Date.parse("04/09/1979"), bio: 'Single mother with 3 kids and a full-time job', disability: 'None',   admin: false)
+User.create(email: 'gustav@gmail.com', password: 'yourhoxtonhero', name: 'Will', surname: 'Hill' , address: 'Shoreditch, London', contact_number: '07773327846', date_of_birth: Date.parse("22/04/1982"), bio: 'Suffering with Cerebral Palsy' , disability: 'Cerebral Palsy',   admin: false)
+User.create(email: 'genti@yahoo.com', password: 'yourhoxtonhero', name: 'Lucy', surname: 'Silver', address: 'Clapham, London' , contact_number: '07775127849', date_of_birth: Date.parse("15/02/1951"), bio: 'Widow living alone in Clapham', disability: 'None',   admin: false)
 User.create(email: 'mike@yahoo.com', password: 'yourhoxtonhero', name: 'Mike', surname: 'Myers', address: 'Bermondsey, Lonon', contact_number: '07775127812', date_of_birth: Date.parse("25/11/1946"), bio: 'Old man living alone in Bermondsey', disability: 'Wheelchair' ,   admin: false)
 User.create(email: 'luke@gmail.com', password: 'yourhoxtonhero', name: 'Luke', surname: 'Tate' , address: 'Fulham, London', contact_number: '07775127877', date_of_birth: Date.parse("11/05/1993"), bio: 'Looking to help people in need', disability: 'None',   admin: false)
 User.create(email: 'mary@gmail.com', password: 'yourhoxtonhero', name: 'Mary', surname: 'Magdalene', address: 'Hoxton, London', contact_number: '07775127592', date_of_birth: Date.parse("18/06/1988"), bio: 'Looking to give back to my local community', disability: 'None',   admin: false)
@@ -42,6 +42,10 @@ User.create(email: 'louisa@yahoo.com', password: 'yourhoxtonhero', name: 'Louisa
 User.create(email: 'ollie@yahoo.com', password: 'yourhoxtonhero', name: 'Ollie', surname: 'Xu', address: 'Bermondsey, Lonon', contact_number: '07775127378', date_of_birth: Date.parse("30/06/1981"), bio: 'Love helping others in my spare time', disability: 'None' ,   admin: false)
 
 puts "Succesfully created #{User.count} Users"
+
+puts 'Creating chatroom'
+Chatroom.create(name: "Hero chat")
+puts 'Created chatroom'
 
 puts 'Creating Tasks'
 
