@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(user: current_user).reverse
     @bookings = policy_scope(Booking).order(created_at: :desc)
+    @user = current_user
   end
 
   def new
