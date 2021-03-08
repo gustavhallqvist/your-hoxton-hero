@@ -54,7 +54,7 @@
 
 .home_wrapper {
   padding: 40px;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
   background-image: linear-gradient(180deg, #FFFFFF 20%, rgba(250, 204, 85, 0.05), rgba(250, 204, 85, 0.4));
 }
 
@@ -112,3 +112,20 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
+
+.div {
+ display: block;
+ position: relative;
+ top: -2px;
+ height: 174px;
+ background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 174" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(250, 204, 85, 0.4)" d="M 0 174 C 433.8 174 289.2 110 723 110 L 723 110 L 723 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(250, 204, 85, 0.4)" d="M 722 110 C 1152.8 110 1009.2 0 1440 0 L 1440 0 L 1440 0 L 722 0 Z" stroke-width="0"></path> </svg>');
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+@media (max-width:1423px) {
+ .div {
+   background-size: contain;
+ }
+}
+
