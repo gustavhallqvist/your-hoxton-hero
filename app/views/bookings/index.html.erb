@@ -40,6 +40,12 @@
         <div class="dashboard_card">
           <p>insert tasks confirmed / pending / history</p>
           <h6>Your Confirmed Tasks</h6>
+             <% current_user.bookings.each do |booking| %>
+             <%= booking.id %>
+             <%= booking.task.category.name %>
+             <%= booking.task.date %>
+             <%= booking.category %>
+             <% end %>
         </div>
       </div>
 
