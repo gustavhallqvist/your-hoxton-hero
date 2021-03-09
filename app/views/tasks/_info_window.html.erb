@@ -1,5 +1,5 @@
 <div class="container border border-primary">
   <h2><%= task.category.name %></h2>
-  <p><%= task.date %></p>
+  <p><%= task.date.strftime('%Y-%M-%D') %></p>
   <p><%= task.address %></p>
 </div>

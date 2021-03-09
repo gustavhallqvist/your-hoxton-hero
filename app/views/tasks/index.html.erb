@@ -20,7 +20,7 @@
               <h2><%= link_to task.category.name, task_path(task) %></h2>
               <p><b>What:</b> <%= task.description %></p>
               <p><b>Where:</b> <%= task.address %><b></p>
-              <p>When:</b> <%= task.date %></p>
+              <p>When:</b> <%= task.date.strftime('%Y-%M-%D') %></p>
             </div>
             <!-- insert user avatar -->
           </div>
