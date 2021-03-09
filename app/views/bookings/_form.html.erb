@@ -1,9 +1,9 @@
-<div class="container p-0" style="position:relative; top:30px;">
+<div class="form-wrapper">
   <%= simple_form_for  [task, booking] do |f| %>
     <% if @user == current_user %>
     <%= @user.email current_user.email %>
       <%= f.input :status %>
     <% end %>
-    <%= f.submit "Volunteer", class: "btn-green" %>
+    <%= f.submit "Volunteer", class: "btn-green-card" %>
   <% end %>
 </div>

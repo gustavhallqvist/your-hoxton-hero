@@ -1,0 +1,26 @@
+.form-wrapper {
+  height: 100%;
+}
+
+.form-wrapper form {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-inner {
+  width: 100%;
+  padding: 16px;
+}
+
+.btn-green-card {
+  width: 100px;
+  height: 40px;
+  color: white;
+  border-radius: 8px;
+  background: rgba(138, 171, 137, 0.9);
+  transition: background 0.3s ease;
+  box-shadow: 0 0 20px #eee;
+  text-decoration: none !important;
+}
