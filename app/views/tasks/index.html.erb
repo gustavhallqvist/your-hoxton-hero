@@ -23,6 +23,9 @@
               <p>When:</b> <%= task.date %></p>
             </div>
             <!-- insert user avatar -->
+            <div class="text-right">
+              <%= render "bookings/form", task: task, booking: Booking.new %>
+            </div>
           </div>
         </div>
       <% end %>
