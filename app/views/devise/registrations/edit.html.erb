@@ -22,6 +22,13 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :surname, required: true, autofocus: true %>
+    <%= f.input :address, required: true, autofocus: true %>
+    <%= f.input :contact_number, required: true, autofocus: true %>
+    <%= f.input :date_of_birth, required: true, autofocus: true %>
+    <%= f.input :bio, required: false, autofocus: true %>
+    <%= f.input :disability, required: false, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

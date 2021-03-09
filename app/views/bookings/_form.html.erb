@@ -1,7 +1,6 @@
 <div class="form-wrapper">
   <%= simple_form_for  [task, booking] do |f| %>
-    <% if @user == current_user %>
-    <%= @user.email current_user.email %>
+    <% if user_signed_in? && @user == current_user %>
       <%= f.input :status %>
     <% end %>
     <%= f.submit "Volunteer", class: "btn-green-card" %>
