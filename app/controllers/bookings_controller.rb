@@ -1,10 +1,13 @@
+require 'date'
+
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = Booking.where(user: current_user).reverse
-    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
+    @tasks = policy_scope(Task).where(user: current_user).order(created_at: :desc)
     @user = current_user
+    @current_time = DateTime.now
   end
 
   def new
