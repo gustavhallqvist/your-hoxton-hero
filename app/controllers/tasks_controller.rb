@@ -1,3 +1,5 @@
+require 'date'
+
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index ]
@@ -15,6 +17,7 @@ class TasksController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { task: task })
       }
     end
+    @current_time = DateTime.now
   end
 
   def new

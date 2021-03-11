@@ -49,14 +49,14 @@ puts 'Created chatroom'
 
 puts 'Creating Tasks'
 
-Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('5th Mar 2020 15:00:00+00:00'), address: 'Fulham, London')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('8th Mar 2020 17:00:00+00:00'), address: 'Brixton, London')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('4th Mar 2020 19:00:00+00:00'), address: 'Shoreditch, London')
-Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('7th Mar 2020 12:00:00+00:00'), address: 'Clapham, London')
+Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('12th Mar 2020 15:00:00+00:00'), address: 'Fulham, London')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('14th Mar 2020 17:00:00+00:00'), address: 'Brixton, London')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('13th Mar 2020 19:00:00+00:00'), address: 'Shoreditch, London')
+Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('13th Mar 2020 12:00:00+00:00'), address: 'Clapham, London')
 Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('6th Mar 2020 16:00:00+00:00'), address: 'Bermondsey, London')
-Task.create(user_id: 7, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('10th Mar 2020 19:00:00+00:00'), address: 'Shoreditch, London')
-Task.create(user_id: 8, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('12th Mar 2020 17:00:00+00:00'), address: 'Brixton, London')
-Task.create(user_id: 9, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('14th Mar 2020 19:00:00+00:00'), address: 'Shoreditch, London')
+Task.create(user_id: 7, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('15th Mar 2020 19:00:00+00:00'), address: 'Shoreditch, London')
+Task.create(user_id: 8, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('16th Mar 2020 17:00:00+00:00'), address: 'Brixton, London')
+Task.create(user_id: 9, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('12th Mar 2020 19:00:00+00:00'), address: 'Shoreditch, London')
 
 puts "Succesfully created #{Task.count} Tasks"
 

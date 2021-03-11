@@ -14,18 +14,20 @@
   <div class="row d-flex justify-content-center">
     <div class="col">
       <% @tasks.each do |task|  %>
-        <div class="card-booking my-2">
-          <div class="d-flex card-inner justify-content-between">
-            <div class="card-booking-infos" >
-              <h2><%= link_to task.category.name, task_path(task) %></h2>
-              <p><b>What:</b> <%= task.description %></p>
-              <p><b>Where:</b> <%= task.address %><b></p>
-              <p>When:</b> <%= task.date.strftime("%l:%M%p on %d %b %Y") %></p>
+        <% if task.date > @current_time %>
+          <div class="card-booking my-2">
+            <div class="d-flex card-inner justify-content-between">
+              <div class="card-booking-infos" >
+                <h2><%= link_to task.category.name, task_path(task) %></h2>
+                <p><b>What:</b> <%= task.description %></p>
+                <p><b>Where:</b> <%= task.address %><b></p>
+                <p>When:</b> <%= task.date.strftime("%l:%M%p on %d %b %Y") %></p>
+              </div>
+              <!-- insert user avatar -->
+                <%= render "bookings/form", task: task, booking: Booking.new %>
             </div>
-            <!-- insert user avatar -->
-              <%= render "bookings/form", task: task, booking: Booking.new %>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
     <div class="col my-2" id="map" style="width: 100%; height: 100vh;"data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
