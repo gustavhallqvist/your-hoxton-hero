@@ -9,6 +9,8 @@ require 'date'
 
 puts 'Clearing database'
 
+BookingReview.destroy_all
+TaskReview.destroy_all
 Booking.destroy_all
 Task.destroy_all
 User.destroy_all
