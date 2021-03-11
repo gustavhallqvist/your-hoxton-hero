@@ -15,7 +15,7 @@
               <% end %>
     <h6 class="profile_font"> Hello <%= current_user.name %>!</h6>
     <ul class="sidenav__list">
-      <li class="sidenav__list-item">Dashboard</li>
+      <li class="sidenav__list-item"><%= link_to "Dashboard", bookings_path %></li>
       <li class="sidenav__list-item"><%= link_to "Profile", edit_user_registration_path %></li>
       <li class="sidenav__list-item">Tasks</li>
       <li class="sidenav__list-item">Messages</li>
