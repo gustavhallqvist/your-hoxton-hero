@@ -1,2 +1,14 @@
-<h1>Hello</h1>
-<%= @task.category.name  %>
+<div class="container">
+  <h1>Your </h1>
+  <h2><%= link_to 'back', tasks_path %></h2>
+  <p><b>What:</b> <%= @task.description %></p>
+  <p><b>Where:</b> <%= @task.address %><b></p>
+  <p>When:</b> <%= @task.date.strftime('%Y-%M-%D') %></p>
+</div>
+
+
+<% if current_user == @task.user  %>
+   <p> I'm the Owner </p>
+<% else %>
+  <p>I'm the Hero</p>
+<% end %>
