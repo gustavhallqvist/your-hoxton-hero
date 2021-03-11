@@ -1,14 +1,31 @@
-<div class="container">
-  <h1>Your </h1>
-  <h2><%= link_to 'back', tasks_path %></h2>
-  <p><b>What:</b> <%= @task.description %></p>
-  <p><b>Where:</b> <%= @task.address %><b></p>
-  <p>When:</b> <%= @task.date.strftime('%Y-%M-%D') %></p>
+<div class= "d-flex justify-content-center">
+  <div class=card-confirmation>
+    <div class="container card-confirmation-info ">
+      <div class="card border-0" style="text-align: justfiy-content-center; background: transparent;">
+      <div class="icon_card">
+        <lord-icon
+          src="https://cdn.lordicon.com//gghbrdfg.json"
+          trigger="hover"
+          colors="primary:#264653,secondary:#8aab89"
+          stroke="30"
+          style="width:104px;height:104px">
+        </lord-icon>
+      </div>
+</div>
+      <h1>Your <%= @task.category.name %> Hero has been requested </h1>
+      <p><b>Where:</b> <%= @task.address %><b></p>
+      <p>When:</b> <%= @task.date.strftime('%Y-%M-%D') %></p>
+      <p><b>Extra description:</b> <%= @task.description %> </p>
+    </div>
+  </div>
 </div>
 
 
+
 <% if current_user == @task.user  %>
-   <p> I'm the Owner </p>
+   <h2 class="btn btn-new-primary" ><%= link_to 'Back', task_path %> </h2>
 <% else %>
   <p>I'm the Hero</p>
 <% end %>
+
+
