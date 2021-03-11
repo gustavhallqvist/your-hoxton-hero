@@ -7,6 +7,27 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
+      <%= f.input :name,
+                  required: true,
+                  input_html: { autocomplete: "name" } %>
+      <%= f.input :surname,
+                  required: true,
+                  input_html: { autocomplete: "surname" } %>
+      <%= f.input :address,
+                  required: true,
+                  input_html: { autocomplete: "address" } %>
+      <%= f.input :contact_number,
+                  required: true,
+                  input_html: { autocomplete: "contact number" } %>
+      <%= f.input :date_of_birth,
+                  required: true,
+                  input_html: { autocomplete: "date of birth" } %>
+      <%= f.input :bio,
+                  required: false,
+                  input_html: { autocomplete: "bio" } %>
+      <%= f.input :disability,
+                  required: false,
+                  input_html: { autocomplete: "disability" } %>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
