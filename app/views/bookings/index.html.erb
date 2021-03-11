@@ -116,10 +116,27 @@
         <div class="dashboard_card">
           <ol>
             <% @bookings.each do |booking| %>
-              <% if booking.task.date < @current_time %>
+              <% if booking.task.date < @current_time && booking.status %>
                 <li>
                   <%= link_to booking.task.category.name, booking_path(booking) %>
                   <%= booking.task.date.strftime("%l:%M%p on %d %b %Y") %>
+                </li>
+              <% end %>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+
+      <div id="Bookings" class="tabcontent">
+        <h6>Expired Bookings</h6>
+        <div class="dashboard_card">
+          <ol>
+            <% @bookings.each do |booking| %>
+              <% if booking.task.date < @current_time && !booking.status %>
+                <li>
+                  <%= link_to booking.task.category.name, booking_path(booking) %>
+                  <%= booking.task.date.strftime("%l:%M%p on %d %b %Y") %>
+                  - <em><%= link_to "Remove", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %></em>
                 </li>
               <% end %>
             <% end %>
