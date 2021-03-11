@@ -19,7 +19,8 @@
       <li class="sidenav__list-item">Dashboard</li>
       <li class="sidenav__list-item">Profile</li>
       <li class="sidenav__list-item">Tasks</li>
-      <li class="sidenav__list-item">Messages</li>
+      <li class="sidenav__list-item"><%= link_to 'Messages', chatroom_url(Chatroom.ids)
+       %></li>
       <li class="sidenav__list-item">Reviews</li>
     </ul>
   </aside>
