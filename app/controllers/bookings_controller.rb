@@ -1,20 +1,27 @@
+require 'date'
+
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = Booking.where(user: current_user).reverse
-    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
+    @tasks = policy_scope(Task).where(user: current_user).order(created_at: :desc)
     @user = current_user
+    @current_time = DateTime.now
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
+    @task = Task.find(params[:task_id])
+    @user = @task.user
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
     @booking.user = current_user
     @booking.task = Task.find(params[:task_id])
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else

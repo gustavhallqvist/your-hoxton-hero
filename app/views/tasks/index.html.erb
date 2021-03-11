@@ -20,9 +20,10 @@
               <h2><%= link_to task.category.name, task_path(task) %></h2>
               <p><b>What:</b> <%= task.description %></p>
               <p><b>Where:</b> <%= task.address %><b></p>
-              <p>When:</b> <%= task.date.strftime('%Y-%M-%D') %></p>
+              <p>When:</b> <%= task.date.strftime("%l:%M%p on %d %b %Y") %></p>
             </div>
             <!-- insert user avatar -->
+              <%= render "bookings/form", task: task, booking: Booking.new %>
           </div>
         </div>
       <% end %>

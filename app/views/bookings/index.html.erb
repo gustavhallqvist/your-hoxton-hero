@@ -8,9 +8,12 @@
     <br>
     <%= link_to "Post A New Task", new_task_path, class: "btn_dashboard mt-2" %>
   </header>
-
   <aside class="sidenav">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: 'avatar-profile', alt: "alttext" %>
+    <%  if user_signed_in? && current_user.avatar.attached? %>
+                <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-large" %>
+              <% else %>
+                <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
+              <% end %>
     <h6 class="profile_font"> Hello <%= current_user.name %>!</h6>
     <ul class="sidenav__list">
       <li class="sidenav__list-item">Dashboard</li>
@@ -27,37 +30,152 @@
        <h6>Dashboard</h6>
       </div>
 
-      <div id="Profile" class="tabcontent">
-        <h6>My Profile</h6>
+      <div id="Tasks" class="tabcontent">
+        <h6>Pending Tasks</h6>
         <div class="dashboard_card">
-          <p>insert form</p>
-
+          <ol>
+            <% @tasks.each do |task| %>
+              <% if task.date > @current_time %>
+                <li>
+                  <%= task.category.name %>
+                  <%= task.date.strftime("at %l:%M%p on %d %b %Y") %>
+                  <% if task.bookings.where(status: true).length > 1 %>
+                    - <em><%= link_to "Confirmed", task_path(task) %></em> &#128077
+                  <% else %>
+                    - <em><%= link_to "Pending Confirmation", task_path(task) %></em> &#128078
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ol>
         </div>
       </div>
 
       <div id="Tasks" class="tabcontent">
-        <h6>Tasks</h6>
+        <h6>Completed Tasks</h6>
         <div class="dashboard_card">
-          <p>insert tasks confirmed / pending / history</p>
-          <h6>Your Confirmed Tasks</h6>
+          <ol>
+            <% @tasks.each do |task| %>
+              <% if task.date < @current_time && task.bookings.where(status: true).length > 1 %>
+                <li>
+                  <%= link_to task.category.name, task_path(task) %>
+                  <%= task.date.strftime("%l:%M%p on %d %b %Y") %>
+                  <% booking = task.bookings.where(status: true).first %>
+                  <% if booking.booking_review %>
+                    - <em>Review Submitted</em>
+                  <% else %>
+                    - <em><%= link_to "Leave a Review", new_booking_booking_review_path(booking) %></em>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ol>
         </div>
       </div>
 
-      <div id="Messages" class="tabcontent">
-        <h6>Messages</h6>
+      <div id="Tasks" class="tabcontent">
+        <h6>Expired Tasks</h6>
         <div class="dashboard_card">
-          <p>insert chat history?</p>
+          <ol>
+            <% @tasks.each do |task| %>
+              <% if task.date < @current_time && task.bookings.where(status: true).length < 1 %>
+                <li>
+                  <%= link_to task.category.name, task_path(task) %>
+                  <%= task.date.strftime("%l:%M%p on %d %b %Y") %>
+                  - <em><%= link_to "Remove", task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %></em>
+                </li>
+              <% end %>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+
+      <div id="Bookings" class="tabcontent">
+        <h6>Pending Bookings</h6>
+        <div class="dashboard_card">
+          <ol>
+            <% @bookings.each do |booking| %>
+              <% if booking.task.date > @current_time %>
+                <li>
+                  <%= booking.task.category.name %>
+                  <%= booking.task.date.strftime("at %l:%M%p on %d %b %Y") %>
+                  <% if booking.status %>
+                    - <em><%= link_to "Confirmed", booking_path(booking) %></em> &#128077
+                  <% else %>
+                    - <em><%= link_to "Pending Confirmation", booking_path(booking) %></em> &#128078
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+
+      <div id="Bookings" class="tabcontent">
+        <h6>Completed Bookings</h6>
+        <div class="dashboard_card">
+          <ol>
+            <% @bookings.each do |booking| %>
+              <% if booking.task.date < @current_time && booking.status %>
+                <li>
+                  <%= link_to booking.task.category.name, booking_path(booking) %>
+                  <%= booking.task.date.strftime("%l:%M%p on %d %b %Y") %>
+                </li>
+              <% end %>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+
+      <div id="Bookings" class="tabcontent">
+        <h6>Expired Bookings</h6>
+        <div class="dashboard_card">
+          <ol>
+            <% @bookings.each do |booking| %>
+              <% if booking.task.date < @current_time && !booking.status %>
+                <li>
+                  <%= link_to booking.task.category.name, booking_path(booking) %>
+                  <%= booking.task.date.strftime("%l:%M%p on %d %b %Y") %>
+                  - <em><%= link_to "Remove", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %></em>
+                </li>
+              <% end %>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+
+      <div id="Rating" class="tabcontent">
+        <h6>My HERO Rating</h6>
+        <div class="dashboard_card">
+          <% sum = 0 %>
+          <% reviews = 0 %>
+          <% @bookings.each do |booking| %>
+            <% if booking.booking_review %>
+              <% sum += booking.booking_review.rating %>
+              <% reviews += 1 %>
+            <% end %>
+          <% end %>
+          <% if reviews != 0 %>
+            <%= sum / reviews %> / 5 &#11088;
+          <% else %>
+            <em>No Reviews</em>
+          <% end %>
         </div>
       </div>
 
       <div id="Reviews" class="tabcontent">
-        <h6>Reviews</h6>
+        <h6>Recent HERO Reviews</h6>
         <div class="dashboard_card">
-          <p>reviews as a hero & neighbour in need</p>
+          <ul>
+            <% @bookings.each do |booking| %>
+              <% if booking.booking_review %>
+                <li>"<%= booking.booking_review.comment %>" <em>from <%= booking.booking_review.user.name %></em> </li>
+              <% end %>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
   </main>
-
   <chat class="chat"></chat>
 </div>
