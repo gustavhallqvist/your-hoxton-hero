@@ -36,7 +36,7 @@
         <div class="dashboard_card">
           <ol>
             <% @tasks.each do |task| %>
-              <% if task.date > @current_time %>
+              <% if task.date >=-ñ @current_time %>
                 <li>
                   <%= task.category.name %>
                   <%= task.date.strftime("at %l:%M%p on %d %b %Y") %>
