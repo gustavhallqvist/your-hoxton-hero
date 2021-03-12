@@ -40,7 +40,7 @@
                 <li>
                   <%= task.category.name %>
                   <%= task.date.strftime("at %l:%M%p on %d %b %Y") %>
-                  <% if task.bookings.where(status: true).length > 1 %>
+                  <% if task.bookings.where(status: true).length > 0 %>
                     - <em><%= link_to "Confirmed", task_path(task) %></em> &#128077
                   <% else %>
                     - <em><%= link_to "Pending Confirmation", task_path(task) %></em> &#128078

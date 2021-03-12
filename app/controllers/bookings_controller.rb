@@ -4,8 +4,8 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
-    @tasks = policy_scope(Task).where(user: current_user).order(created_at: :desc)
+    @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :asc)
+    @tasks = policy_scope(Task).where(user: current_user).order(created_at: :asc)
     @user = current_user
     @current_time = DateTime.now
   end
