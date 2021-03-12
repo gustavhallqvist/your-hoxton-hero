@@ -6,9 +6,9 @@ class TasksController < ApplicationController
 
   def index
     if params[:query].present?
-      @tasks = policy_scope(Task).near(params[:query], 2).order(date: :desc)
+      @tasks = policy_scope(Task).near(params[:query], 2).order(date: :asc)
     else
-      @tasks = policy_scope(Task).order(date: :desc)
+      @tasks = policy_scope(Task).order(date: :asc)
     end
     @markers = @tasks.geocoded.map do |task|
       {
