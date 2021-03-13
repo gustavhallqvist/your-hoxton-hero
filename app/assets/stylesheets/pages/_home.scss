@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+html {
+  scroll-behavior: smooth;
+}
+
 .home_banner {
   background-image: asset_url("hero_banner.png");
   height: 100vh;
@@ -128,4 +132,3 @@
    background-size: contain;
  }
 }
-

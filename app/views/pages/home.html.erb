@@ -4,11 +4,14 @@
   <div class="container">
     <h1>Find your local hero today</h1>
     <p>The community platform connecting neighbours-in-need with local volunteers</p>
-    <%= render "shared/modal_home" %>
+    <%= link_to "GET STARTED", "#{root_path}#get_started", class: "btn-home" %>
   </div>
+  <br>
+  <br>
+  <br>
+  <div id="get_started"></div>
 </div>
 <!-- search bar -->
-
 <div class="home_wrapper">
   <h2 class="text-center">Help from your hero, whenever you need it</h2>
     <div class="container">
