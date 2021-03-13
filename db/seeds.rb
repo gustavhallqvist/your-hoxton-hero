@@ -16,12 +16,12 @@ Task.destroy_all
 User.destroy_all
 Category.destroy_all
 
-Categories = ['Errand', 'Shopping', 'Driving', 'Cooking', 'Cleaning', 'Gardening', 'Babysitting', 'Dog Walking', 'Companion']
+Categories = [['Errand', "errand_icon.png"], ['Shopping',"shopping_icon.png"], ['Driving', "driving_icon.png"], ['Cooking', "cooking_icon.png"], ['Cleaning',"washing_icon.png"], ['Gardening',"gardening_icon.png"], ['Babysitting',"babysitting_icon.png"], ['Dog Walking', "dog_walk_icon.png"], ['Companion', "coffee_icon.png"]]
 
 puts 'Creating Categories'
 
 Categories.each do |category|
-  Category.create(name: category)
+  Category.create!(name: category[0], icon: category[1])
 end
 
 puts "Succesfully created #{Category.count} Categories"
