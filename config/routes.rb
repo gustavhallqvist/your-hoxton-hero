@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   resources :tasks do
     resources :bookings, only: [:new, :create]
     resources :task_reviews, only: [:new, :create]
+    collection do
+      get 'dashboard'
+    end
   end
   resources :bookings, only: [:index, :show, :edit, :update, :destroy] do
     resources :booking_reviews, only: [:new, :create]
   end
   resources :booking_reviews, only: [:show, :edit, :update, :destroy]
-  resources :task_reviews, only: [:show, :edit, :update, :destroy]
+  resources :task_reviews, only: [:index, :show, :edit, :update, :destroy]
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create

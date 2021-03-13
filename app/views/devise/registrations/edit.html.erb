@@ -3,9 +3,7 @@
 <!-- dashboard -->
 <div class="grid-container">
   <header class="header">
-    <%= link_to "Confirm A Task", '#', class: "btn_dashboard mt-2" %>
-    <br>
-    <%= link_to "Post A New Task", new_task_path, class: "btn_dashboard mt-2" %>
+   <h3>Account Details</h3>
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
@@ -15,68 +13,66 @@
               <% end %>
     <h6 class="profile_font"> Hello <%= current_user.name %>!</h6>
     <ul class="sidenav__list">
-      <li class="sidenav__list-item"><%= link_to "Dashboard", bookings_path %></li>
       <li class="sidenav__list-item"><%= link_to "Profile", edit_user_registration_path %></li>
-      <li class="sidenav__list-item">Tasks</li>
-      <li class="sidenav__list-item">Messages</li>
-      <li class="sidenav__list-item">Reviews</li>
+      <li class="sidenav__list-item"><%= link_to "Tasks", dashboard_tasks_path %></li>
+      <li class="sidenav__list-item"><%= link_to "Bookings", bookings_path %></li>
+      <li class="sidenav__list-item"><%= link_to 'Messages', chatroom_url(Chatroom.ids)%></li>
+      <li class="sidenav__list-item"><%= link_to 'Reviews', task_reviews_path %></li>
     </ul>
   </aside>
 
   <main class="main">
     <div class="container">
-      <div id="Dashboard" class="tabcontent">
-       <h6>Account Details</h6>
-      </div>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.error_notification %>
+      <br>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-        <div class="form-group">
-          <div class="row">
-            <div class="col-sm-4">
-              <%  if user_signed_in? && current_user.avatar.attached? %>
-                <%= cl_image_tag current_user.avatar.key,class: "avatar-large" %>
-              <% else %>
-                <%= image_tag 'avatar_dummy.png', class: "avatar-large" %>
-              <% end %>
-            </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4">
+            <%  if user_signed_in? && current_user.avatar.attached? %>
+              <%= cl_image_tag current_user.avatar.key,class: "avatar-large" %>
+            <% else %>
+              <%= image_tag 'avatar_dummy.png', class: "avatar-large" %>
+            <% end %>
+          </div>
 
-            <div class="col-sm-8">
-              <%= f.file_field :avatar %>
-            </div>
+          <div class="col-sm-8">
+            <%= f.file_field :avatar %>
           </div>
         </div>
+      </div>
 
-        <div class="form-inputs">
-          <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :name, required: true, autofocus: true %>
-          <%= f.input :surname, required: true, autofocus: true %>
-          <%= f.input :address, required: true, autofocus: true %>
-          <%= f.input :contact_number, required: true, autofocus: true %>
-          <%= f.input :date_of_birth, required: true, autofocus: true %>
-          <%= f.input :bio, required: false, autofocus: true %>
-          <%= f.input :disability, required: false, autofocus: true %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :name, required: true, autofocus: true %>
+        <%= f.input :surname, required: true, autofocus: true %>
+        <%= f.input :address, required: true, autofocus: true %>
+        <%= f.input :contact_number, required: true, autofocus: true %>
+        <%= f.input :date_of_birth, required: true, autofocus: true %>
+        <%= f.input :bio, required: false, autofocus: true %>
+        <%= f.input :disability, required: false, autofocus: true %>
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-          <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-          <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :current_password,
-                      hint: "we need your current password to confirm your changes",
-                      required: true,
-                      input_html: { autocomplete: "current-password" } %>
-        </div>
+        <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Update", class: "btn-green" %>
-        </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Update", class: "btn-green" %>
+      </div>
       <% end %>
 
       <h3>Cancel my account</h3>
