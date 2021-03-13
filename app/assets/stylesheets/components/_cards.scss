@@ -28,6 +28,10 @@
   margin-top: 8px;
 }
 
+.card-booking:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
 .card-booking .card-booking-infos {
   h2{
     font-size: 24px;
@@ -43,7 +47,7 @@
   align-items: center;
 }
 .card-booking:hover{
-  transform: translate(1px 1px)
+  background: rgba(138, 171, 137, 0.1);
 }
 
 .cards-categories {

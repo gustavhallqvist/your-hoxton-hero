@@ -1,7 +1,41 @@
+<h1 class="cursive-header">Just 3 steps to becoming your local HERO</h1>
 <div class="container p-0" style="position:relative; ">
-  <h2 class="cursive-header">Just 3 steps to becoming your local HERO</h2>
-  <h4 style="text-align: center; color: #3A6B7E; margin: 0; padding-top: 16px;">1. Find neighbours-in-need in your local area?</h4>
   <div class="container">
+
+  <!-- 3 steps -->
+  <div class="cards-categories" style="padding-top: 32px; margin-left: 40px; text-align: center;">
+    <div>1. Search your area
+      <lord-icon
+        src="https://cdn.lordicon.com/msoeawqm.json"
+        trigger="hover"
+        colors="primary:#264653,secondary:#8aab89"
+        stroke="30"
+        scale="40"
+        style="width:96px;height:96px">
+      </lord-icon>
+    </div>
+    <div>2. Find your match
+      <lord-icon
+        src="https://cdn.lordicon.com/fibwwwxi.json"
+        trigger="loop"
+        delay="3000"
+        colors="primary:#264653,secondary:#8aab89"
+        stroke="30"
+        style="width:96px;height:96px">
+    </lord-icon>
+    </div>
+    <div>3. Hit 'Volunteer'
+      <lord-icon
+        src="https://cdn.lordicon.com/dnruoeub.json"
+        trigger="hover"
+        colors="primary:#264653,secondary:#8aab89"
+        stroke="30"
+        style="width:96px;height:96px">
+      </lord-icon>
+    </div>
+  </div>
+
+ <!-- search / map / tasks -->
     <%= form_tag tasks_path, method: :get, class: "search-home justify-content-center" do %>
     <div class="d-flex justify-content-center" style="padding: 8px">
       <%= text_field_tag :query,
@@ -14,7 +48,6 @@
   <% end %>
 </div>
 
-
   <div class="row d-flex justify-content-center">
     <div class="col">
       <% @tasks.each do |task|  %>
@@ -22,7 +55,7 @@
           <div class="card-booking my-2">
             <div class="d-flex card-inner justify-content-between">
               <div class="card-booking-infos" >
-                <h2><%= link_to task.category.name, task_path(task) %></h2>
+                <p style="font-weight: bold;"><%= link_to task.category.name.upcase, task_path(task) %></p>
                 <p><b>What:</b> <%= task.description %></p>
                 <p><b>Where:</b> <%= task.address %><b></p>
                 <p>When:</b> <%= task.date.strftime("%l:%M%p on %d %b %Y") %></p>
