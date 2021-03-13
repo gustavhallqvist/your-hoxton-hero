@@ -55,7 +55,7 @@
           <div class="d-flex flex-wrap" id="review-mural">
             <% @bookings.each do |booking| %>
               <% if booking.booking_review %>
-                <div class="card m-3" style="width: 18rem;">
+                <div class="card review-card" style="width: 18rem;">
                   <div class="card-body">
                     <h5 class="card-title"><%= booking.booking_review.rating %> / 5 &#11088;</h5>
                     <h5 class="card-title">"<%= booking.booking_review.comment %>"</h5>
@@ -66,7 +66,7 @@
             <% end %>
             <% @tasks.each do |task| %>
               <% if task.task_review %>
-                <div class="card m-3" style="width: 18rem;">
+                <div class="card review-card" style="width: 18rem;">
                   <div class="card-body">
                     <h5 class="card-title"><%= task.task_review.rating %> / 5 &#11088;</h5>
                     <h5 class="card-title">"<%= task.task_review.comment %>"</h5>

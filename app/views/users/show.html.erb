@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <br>
+              <%  if user_signed_in? && current_user.avatar.attached? %>
+                <%= cl_image_tag current_user.avatar.key, class: "avatar-large" %>
+              <% else %>
+                <%= image_tag 'avatar_dummy.png', class: "avatar-large", alt: "alttext"%>
+              <% end %>
+              <div class="mt-3">
+                <h4><%= @user.name %></h4>
+                <p class="text-secondary mb-1"><%= ((@current_date - @user.date_of_birth).to_i)/365.25.to_i %> yrs</p>
+                <p class="text-muted font-size-sm">
+                  <% sum = 0 %>
+                  <% reviews = 0 %>
+                  <% @bookings.each do |booking| %>
+                    <% if booking.booking_review %>
+                      <% sum += booking.booking_review.rating %>
+                      <% reviews += 1 %>
+                    <% end %>
+                  <% end %>
+                  <% @tasks.each do |task| %>
+                    <% if task.task_review %>
+                      <% sum += task.task_review.rating %>
+                      <% reviews += 1 %>
+                    <% end %>
+                  <% end %>
+                  <% if reviews != 0 %>
+                    <%= sum / reviews %> / 5 &#11088;
+                  <% else %>
+                    <em>No Reviews</em>
+                  <% end %>
+                </p>
+                <button class="btn btn-outline-primary">Message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary user-info">
+                <%= @user.name %> <%= @user.surname %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary user-info">
+                <%= @user.email %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary user-info">
+                <%= @user.contact_number %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary user-info">
+                <%= @user.address %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap" id="review-mural">
+      <% @bookings.each do |booking| %>
+        <% if booking.booking_review %>
+          <div class="card review-card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.booking_review.rating %> / 5 &#11088;</h5>
+              <h5 class="text-secondary">"<%= booking.booking_review.comment %>"</h5>
+              <h5 class="text-secondary"><em>from <%= booking.booking_review.user.name %></em></h5>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <% @tasks.each do |task| %>
+        <% if task.task_review %>
+          <div class="card review-card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= task.task_review.rating %> / 5 &#11088;</h5>
+              <h6 class="text-secondary">"<%= task.task_review.comment %>"</h6>
+              <h6 class="text-secondary"><em>from <%= task.task_review.user.name %></em></h6>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
