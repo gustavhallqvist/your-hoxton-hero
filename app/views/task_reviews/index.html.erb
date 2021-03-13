@@ -42,7 +42,7 @@
             <% end %>
           <% end %>
           <% if reviews != 0 %>
-            <%= sum / reviews %> / 5 &#11088;
+            <%= sum / reviews %> / 5 &#11088
           <% else %>
             <em>No Reviews</em>
           <% end %>
@@ -57,7 +57,7 @@
               <% if booking.booking_review %>
                 <div class="card review-card" style="width: 18rem;">
                   <div class="card-body">
-                    <h5 class="card-title"><%= booking.booking_review.rating %> / 5 &#11088;</h5>
+                    <h5 class="card-title"><% (booking.booking_review.rating).times do %> &#11088 <% end %></h5>
                     <h5 class="card-title">"<%= booking.booking_review.comment %>"</h5>
                     <h5 class="card-title"><em>from <%= booking.booking_review.user.name %></em></h5>
                   </div>
@@ -68,7 +68,7 @@
               <% if task.task_review %>
                 <div class="card review-card" style="width: 18rem;">
                   <div class="card-body">
-                    <h5 class="card-title"><%= task.task_review.rating %> / 5 &#11088;</h5>
+                    <h5 class="card-title"><% (task.task_review.rating).times do %> &#11088 <% end %></h5>
                     <h5 class="card-title">"<%= task.task_review.comment %>"</h5>
                     <h5 class="card-title"><em>from <%= task.task_review.user.name %></em></h5>
                   </div>
