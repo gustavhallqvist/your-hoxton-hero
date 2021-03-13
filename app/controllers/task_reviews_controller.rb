@@ -1,16 +1,22 @@
+require 'date'
+
 class TaskReviewsController < ApplicationController
 before_action :set_task_review, only: [:show, :edit, :update, :destroy]
 
   def index
-    @task_reviews = Task_review.where(user: current_user).reverse
+    @task_reviews = TaskReview.where(user: current_user).reverse
+    @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :asc)
+    @tasks = policy_scope(Task).where(user: current_user).order(created_at: :asc)
+    @user = current_user
+    @current_time = DateTime.now
   end
 
   def new
-    @task_review = Task_review.new
+    @task_review = TaskReview.new
   end
 
   def create
-    @task_review = Task_review.new(task_review_params)
+    @task_review = TaskReview.new(task_review_params)
     @task_review.user = current_user
     @task_review.booking = Booking.find(params[:booking_id])
     if @task_review.save
@@ -37,7 +43,7 @@ before_action :set_task_review, only: [:show, :edit, :update, :destroy]
 private
 
   def set_task_review
-    @task_review = Task_review.find(params[:id])
+    @task_review = TaskReview.find(params[:id])
   end
 
   def task_review_params

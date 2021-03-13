@@ -7,6 +7,10 @@ class TaskPolicy < ApplicationPolicy
     end
   end
 
+  def dashboard?
+    true
+  end
+
   def new?
     true
   end

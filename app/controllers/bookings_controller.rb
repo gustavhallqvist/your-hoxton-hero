@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :asc)
-    @tasks = policy_scope(Task).where(user: current_user).order(created_at: :asc)
     @user = current_user
     @current_time = DateTime.now
   end

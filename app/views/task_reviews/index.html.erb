@@ -1,0 +1,61 @@
+<!-- profile page / user dashboard / your bookings list -->
+
+<!-- dashboard -->
+<div class="grid-container">
+
+  <header class="header">
+    <h3>My Reviews</h3>
+  </header>
+  <aside class="sidenav">
+    <%  if user_signed_in? && current_user.avatar.attached? %>
+                <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-large" %>
+              <% else %>
+                <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
+              <% end %>
+    <h6 class="profile_font"> Hello <%= current_user.name %>!</h6>
+    <ul class="sidenav__list">
+      <li class="sidenav__list-item"><%= link_to "Profile", edit_user_registration_path %></li>
+      <li class="sidenav__list-item"><%= link_to "Tasks", dashboard_tasks_path %></li>
+      <li class="sidenav__list-item"><%= link_to "Bookings", bookings_path %></li>
+      <li class="sidenav__list-item"><%= link_to 'Messages', chatroom_url(Chatroom.ids)%></li>
+      <li class="sidenav__list-item"><%= link_to 'Reviews', task_reviews_path %></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <div class="container">
+      <div id="Rating" class="tabcontent">
+        <h6>My HERO Rating</h6>
+        <div class="dashboard_card">
+          <% sum = 0 %>
+          <% reviews = 0 %>
+          <% @bookings.each do |booking| %>
+            <% if booking.booking_review %>
+              <% sum += booking.booking_review.rating %>
+              <% reviews += 1 %>
+            <% end %>
+          <% end %>
+          <% if reviews != 0 %>
+            <%= sum / reviews %> / 5 &#11088;
+          <% else %>
+            <em>No Reviews</em>
+          <% end %>
+        </div>
+      </div>
+
+      <div id="Reviews" class="tabcontent">
+        <h6>Recent HERO Reviews</h6>
+        <div class="dashboard_card">
+          <ul>
+            <% @bookings.each do |booking| %>
+              <% if booking.booking_review %>
+                <li>"<%= booking.booking_review.comment %>" <em>from <%= booking.booking_review.user.name %></em> </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <chat class="chat"></chat>
+</div>

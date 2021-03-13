@@ -4,6 +4,13 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index ]
 
+  def dashboard
+    @tasks = policy_scope(Task).where(user: current_user).order(created_at: :asc)
+    @user = current_user
+    @current_time = DateTime.now
+    authorize @tasks
+  end
+
   def index
     if params[:query].present?
       @tasks = policy_scope(Task).near(params[:query], 2).order(date: :asc)
