@@ -35,6 +35,12 @@
               <% reviews += 1 %>
             <% end %>
           <% end %>
+          <% @tasks.each do |task| %>
+            <% if task.task_review %>
+              <% sum += task.task_review.rating %>
+              <% reviews += 1 %>
+            <% end %>
+          <% end %>
           <% if reviews != 0 %>
             <%= sum / reviews %> / 5 &#11088;
           <% else %>
@@ -46,13 +52,30 @@
       <div id="Reviews" class="tabcontent">
         <h6>Recent HERO Reviews</h6>
         <div class="dashboard_card">
-          <ul>
+          <div class="d-flex flex-wrap" id="review-mural">
             <% @bookings.each do |booking| %>
               <% if booking.booking_review %>
-                <li>"<%= booking.booking_review.comment %>" <em>from <%= booking.booking_review.user.name %></em> </li>
+                <div class="card m-3" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= booking.booking_review.rating %> / 5 &#11088;</h5>
+                    <h5 class="card-title">"<%= booking.booking_review.comment %>"</h5>
+                    <h5 class="card-title"><em>from <%= booking.booking_review.user.name %></em></h5>
+                  </div>
+                </div>
               <% end %>
             <% end %>
-          </ul>
+            <% @tasks.each do |task| %>
+              <% if task.task_review %>
+                <div class="card m-3" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= task.task_review.rating %> / 5 &#11088;</h5>
+                    <h5 class="card-title">"<%= task.task_review.comment %>"</h5>
+                    <h5 class="card-title"><em>from <%= task.task_review.user.name %></em></h5>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
