@@ -7,10 +7,10 @@
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
-                <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-large" %>
-              <% else %>
-                <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
-              <% end %>
+      <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-large" %>
+    <% else %>
+      <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
+    <% end %>
     <h6 class="profile_font"> Hello <%= current_user.name %>!</h6>
     <ul class="sidenav__list">
       <li class="sidenav__list-item"><%= link_to "Profile", edit_user_registration_path %></li>

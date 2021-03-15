@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.user = current_user
     @booking.task = Task.find(params[:task_id])
+    @booking.status = false
     authorize @booking
     if @booking.save
       redirect_to bookings_path
