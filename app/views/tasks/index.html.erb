@@ -1,9 +1,10 @@
-<h1 class="cursive-header">Just 3 steps to becoming your local HERO</h1>
-<div class="container p-0" style="position:relative; ">
+<div class="wrapper_index">
   <div class="container">
+    <div class="container" style="text-align: center; ">
+      <h2 style="padding-top: 32px">Just 3 steps to becoming your local HERO</h2>
 
   <!-- 3 steps -->
-  <div class="cards-categories" style="padding-top: 32px; margin-left: 40px; text-align: center;">
+  <div class="cards-categories" style="margin-left: 40px; text-align: center;">
     <div>1. Search your area
       <lord-icon
         src="https://cdn.lordicon.com/msoeawqm.json"
@@ -36,8 +37,8 @@
   </div>
 
  <!-- search / map / tasks -->
-    <%= form_tag tasks_path, method: :get, class: "search-home justify-content-center" do %>
-    <div class="d-flex justify-content-center" style="padding: 8px">
+    <%= form_tag tasks_path, method: :get, class: "search-task justify-content-center" do %>
+    <div class="d-flex justify-content-center" style="padding: 32px">
       <%= text_field_tag :query,
         params[:query],
         class: "form-control mr-sm-2",
@@ -55,12 +56,13 @@
           <div class="card-booking my-2">
             <div class="d-flex card-inner justify-content-between">
               <div class="card-booking-infos" >
-                <p style="font-weight: bold;"><%= link_to task.category.name.upcase, task_path(task) %></p>
+                <p style="font-weight: bold"><%= link_to task.category.name.upcase, task_path(task) %></p>
                 <p><b>What:</b> <%= task.description %></p>
                 <p><b>Where:</b> <%= task.address %><b></p>
                 <p>When:</b> <%= task.date.strftime("%l:%M%p on %d %b %Y") %></p>
               </div>
-              <!-- insert user avatar -->
+
+
                 <%= render "bookings/form", task: task, booking: Booking.new %>
             </div>
           </div>
@@ -69,4 +71,6 @@
     </div>
     <div class="col my-2" id="map" style="width: 100%; height: 100vh;"data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
+</div>
+
 </div>
