@@ -1,15 +1,53 @@
-<div class="container p-0" style="position:relative; top:30px;">
-  <h1>Become a HERO</h1>
-  <%= form_tag tasks_path, method: :get do %>
-    <div class="d-flex">
+<div class="wrapper_index">
+  <div class="container">
+    <div class="container" style="text-align: center; ">
+      <h2 style="padding-top: 32px">Just 3 steps to becoming your local HERO</h2>
+
+  <!-- 3 steps -->
+  <div class="cards-categories" style="margin-left: 40px; text-align: center;">
+    <div>1. Search your area
+      <lord-icon
+        src="https://cdn.lordicon.com/msoeawqm.json"
+        trigger="hover"
+        colors="primary:#264653,secondary:#8aab89"
+        stroke="30"
+        scale="40"
+        style="width:96px;height:96px">
+      </lord-icon>
+    </div>
+    <div>2. Find your match
+      <lord-icon
+        src="https://cdn.lordicon.com/fibwwwxi.json"
+        trigger="loop"
+        delay="3000"
+        colors="primary:#264653,secondary:#8aab89"
+        stroke="30"
+        style="width:96px;height:96px">
+    </lord-icon>
+    </div>
+    <div>3. Hit 'Volunteer'
+      <lord-icon
+        src="https://cdn.lordicon.com/dnruoeub.json"
+        trigger="hover"
+        colors="primary:#264653,secondary:#8aab89"
+        stroke="30"
+        style="width:96px;height:96px">
+      </lord-icon>
+    </div>
+  </div>
+
+ <!-- search / map / tasks -->
+    <%= form_tag tasks_path, method: :get, class: "search-task justify-content-center" do %>
+    <div class="d-flex justify-content-center" style="padding: 32px">
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
-        placeholder: "Enter your postcode"
+        class: "form-control mr-sm-2",
+        placeholder: "Search your local area"
       %>
-      <%= submit_tag "Search", class: "btn-red" %>
+      <%= submit_tag "Search", class: "btn-outline" %>
     </div>
   <% end %>
+</div>
 
   <div class="row d-flex justify-content-center">
     <div class="col">
@@ -18,12 +56,13 @@
           <div class="card-booking my-2">
             <div class="d-flex card-inner justify-content-between">
               <div class="card-booking-infos" >
-                <h2><%= link_to task.category.name, task_path(task) %></h2>
+                <p style="font-weight: bold"><%= link_to task.category.name.upcase, task_path(task) %></p>
                 <p><b>What:</b> <%= task.description %></p>
                 <p><b>Where:</b> <%= task.address %><b></p>
                 <p>When:</b> <%= task.date.strftime("%l:%M%p on %d %b %Y") %></p>
               </div>
-              <!-- insert user avatar -->
+
+
                 <%= render "bookings/form", task: task, booking: Booking.new %>
             </div>
           </div>
@@ -32,4 +71,6 @@
     </div>
     <div class="col my-2" id="map" style="width: 100%; height: 100vh;"data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
+</div>
+
 </div>

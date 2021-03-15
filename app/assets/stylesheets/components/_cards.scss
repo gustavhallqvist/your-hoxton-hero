@@ -2,7 +2,7 @@
   overflow: hidden;
   height: 160px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
   display: flex;
   justify-content: space-between;
   border-radius: 6px;
@@ -10,8 +10,9 @@
 
 .card-booking img {
   height: auto;
-  width: 272px !important;
-  object-fit: cover;
+  margin-bottom: 32px;
+  // width: 272px !important;
+  // object-fit: cover;
 }
 
 .card-booking h2 {
@@ -26,13 +27,22 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+.card-booking:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-booking .card-booking-infos {
-  h2{
-    font-size: 24px;
+  h3{
+    font-size: 32px;
+    padding: 0px;
+    padding-bottom: 8px;
+    line-height: 0.5;
+    color: #3A6B7E;
   }
-  padding: 16px;
+  padding: 8px;
 }
 
 .small-garden-card:hover{
@@ -43,13 +53,20 @@
   align-items: center;
 }
 .card-booking:hover{
-  transform: translate(1px 1px)
+  background: rgba(138, 171, 137, 0.1);
 }
 
 .cards-categories {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.card-booking-infos .card-booking-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
 
 // Smallest device

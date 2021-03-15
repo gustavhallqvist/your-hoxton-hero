@@ -20,7 +20,26 @@
   color: white;
   border-radius: 8px;
   background: rgba(138, 171, 137, 0.9);
-  transition: background 0.3s ease;
-  box-shadow: 0 0 20px #eee;
+  border: 1px solid rgba(138, 171, 137, 0.9);
+}
+
+.btn-green-card:hover {
+  background: #6e896e;
+  color: white;
   text-decoration: none !important;
 }
+
+.cursive-header {
+  font-family: 'Nanum Pen Script', cursive;
+  color:  #FACC55;
+  // transform: rotate(-11.82deg);
+  // padding-bottom: 32px;
+  // margin-left: 24px;
+}
+
+.wrapper_index {
+  padding: 40px;
+  padding-bottom: 80px;
+  background-image: linear-gradient(180deg, #FFFFFF 50%, rgba(250, 204, 85, 0.05), rgba(250, 204, 85, 0.4));
+}
+

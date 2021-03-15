@@ -4,11 +4,14 @@
   <div class="container">
     <h1>Find your local hero today</h1>
     <p>The community platform connecting neighbours-in-need with local volunteers</p>
-    <%= render "shared/modal_home" %>
+    <%= link_to "GET STARTED", "#{root_path}#get_started", class: "btn-home" %>
   </div>
+  <br>
+  <br>
+  <br>
+  <div id="get_started"></div>
 </div>
 <!-- search bar -->
-
 <div class="home_wrapper">
   <h2 class="text-center">Help from your hero, whenever you need it</h2>
     <div class="container">
@@ -29,9 +32,42 @@
 
 <!-- Testimonials -->
 <div class="testimonial_wrapper" style="padding: 40px;">
+  <div class="inline" style="justify-content: space-between; display: flex;">
+    <lord-icon
+    src="https://cdn.lordicon.com/bwordpbq.json"
+    trigger="hover"
+    colors="primary:#264653"
+    stroke="30"
+    axis-x="50"
+    axis-y="50"
+    style="width:96px;height:96px">
+</lord-icon>
+    <lord-icon
+    src="https://cdn.lordicon.com/xqnbvely.json"
+    trigger="hover"
+    colors="primary:#264653"
+    stroke="30"
+    style="width:96px;height:96px; align-content: right;">
+  </lord-icon>
+  </div>
+
   <h2 class="text-center">Communities are talking...want to eavesdrop?</h2>
-  <p class="text-center">Our trusted heroes have been busy...</p>
+  <h6 class="text-center">Our trusted heroes have been busy...</h6>
   <br>
-  <p class="text-center" style="font-style: italic">Coming soon...</p>
+  <br>
+  <div class="cards-categories">
+    <div class="testimonial_card">Penny was so kind and cooked me a fantastic lasagne last week when I was unwell. I don't know what I'd have done without her.
+      <div class="avatar_card">
+        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="" style="opacity: 0.8;"></div>
+    </div>
+    <div class="testimonial_card">Thank you Tom for being my hero & taking my prescious dog for a walk. He had a great time!
+      <div class="avatar_card">
+        <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="" style="opacity: 0.8;"></div>
+    </div>
+    <div class="testimonial_card">Steven was amazing! He helped my grandmother put up a roller blind & fix her internet. Thanks Tim!
+      <div class="avatar_card">
+        <img src="https://randomuser.me/api/portraits/women/75.jpg" alt="" style="opacity: 0.8;"></div>
+    </div>
+  </div>
 </div>
 
