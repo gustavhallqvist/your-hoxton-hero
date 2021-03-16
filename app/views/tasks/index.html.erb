@@ -61,9 +61,19 @@
                 <p><b>Where:</b> <%= task.address %><b></p>
                 <p>When:</b> <%= task.date.strftime("%l:%M%p on %d %b %Y") %></p>
               </div>
-
-
+              <div class="card-extra-info">
+                <!-- User Avatar -->
+                <div data-toggle="tooltip" data-placement="top" title="<%= task.user.name %>  <%= task.user.surname %> (<%= ((@current_date - task.user.date_of_birth).to_i)/365.25.to_i %> yrs)">
+                  <%= link_to user_path(task.user) do %>
+                    <% if task.user.avatar.attached? %>
+                      <%= cl_image_tag current_user.avatar.key, class: "card-booking-user avatar-bordered", alt: "alttext" %>
+                    <% else %>
+                      <%= image_tag 'avatar_dummy.png', class: "card-booking-user avatar-bordered", alt: "alttext" %>
+                    <% end %>
+                  <% end %>
+                </div>
                 <%= render "bookings/form", task: task, booking: Booking.new %>
+              </div>
             </div>
           </div>
         <% end %>
