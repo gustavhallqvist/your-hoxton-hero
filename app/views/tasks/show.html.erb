@@ -14,21 +14,48 @@
       </div>
 </div>
 
-
 <% if current_user == @task.user  %>
   <div class="home_wrapper">
     <h2 class="text-center">Here are your Heroes</h2>
-    <div class="d-flex justify-content-center m-2">
+    <div class="d-flex justify-content-center">
       <% Booking.where(task: @task).each do |booking| %>
-
-          <div class="d-flex flex-column align-items-center m-5">
-          <%= cl_image_tag booking.user.avatar.key, class: "avatar-large" %>
+        <div class="d-flex flex-column align-items-center m-5">
+          <%= link_to user_path(booking.user), class: "mb-1" do %>
+            <% if booking.user.avatar.attached? %>
+              <%= cl_image_tag booking.user.avatar.key, class: "avatar-large" %>
+            <% else %>
+              <%= image_tag 'avatar_dummy.png', class: "avatar-large", alt: "alttext" %>
+            <% end %>
+          <% end %>
           <%= link_to "#{booking.user.name} #{booking.user.surname}" , user_path %>
+          <%= ((@current_date - booking.user.date_of_birth).to_i)/365.25.to_i %> yrs
+          <div class="mt-1 mb-2">
+            <% sum = 0 %>
+            <% reviews = 0 %>
+            <% booking.user.bookings.each do %>
+              <% if booking.booking_review %>
+                <% sum += booking.booking_review.rating %>
+                <% reviews += 1 %>
+              <% end %>
+            <% end %>
+            <% booking.user.tasks.each do |task| %>
+              <% if task.task_review %>
+                <% sum += task.task_review.rating %>
+                <% reviews += 1 %>
+              <% end %>
+            <% end %>
+            <% if reviews != 0 %>
+              <% (sum / reviews).times do %>
+                &#11088
+              <% end %>
+            <% else %>
+              <em>No Reviews</em>
+            <% end %>
+          </div>
           <%= simple_form_for booking, remote: true do |f| %>
             <%= f.hidden_field :status, value: true %>
             <%= f.submit "Confirm", class: "btn-green-card" %>
           <% end %>
-
         </div>
       <% end %>
     </div>
@@ -38,9 +65,9 @@
       </div>
     </div>
   </div>
-
-   <h2 class="btn btn-new-primary" ><%= link_to 'Back', tasks_path %> </h2>
+  <h2 class="btn btn-new-primary" ><%= link_to 'Back', tasks_path %> </h2>
 <% else %>
+
   <p>I'm the Hero</p>
 <% end %>
 
