@@ -5,15 +5,13 @@
         <div class="icon_card">
           <%= image_tag "icons/#{@task.category.icon}", class: "w-100"%>
         </div>
-
-</div>
-
-      <h1>Your <span><%= @task.category.name %></span> Hero has been requested </h1>
-      <p><b>Where:</b> <%= @task.address %><b></p>
-      <p>When:</b> <%= @task.date.strftime('%Y-%M-%D') %></p>
-      <p><b>Extra description:</b> <%= @task.description %> </p>
-    </div>
-  </div>
+            <h1>Your <span><%= @task.category.name %></span> Hero has been requested </h1>
+            <p><b>Where:</b> <%= @task.address %><b></p>
+            <p>When:</b> <%= @task.date.strftime('%Y-%M-%D') %></p>
+            <p><b>Extra description:</b> <%= @task.description %> </p>
+          </div>
+        </div>
+      </div>
 </div>
 
 
@@ -25,7 +23,7 @@
 
           <div class="d-flex flex-column align-items-center m-5">
           <%= cl_image_tag booking.user.avatar.key, class: "avatar-large" %>
-          <%= booking.user.name %>
+          <%= link_to "#{booking.user.name} #{booking.user.surname}" , user_path %>
           <%= simple_form_for booking, remote: true do |f| %>
             <%= f.hidden_field :status, value: true %>
             <%= f.submit "Confirm", class: "btn-green-card" %>
