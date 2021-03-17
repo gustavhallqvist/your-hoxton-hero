@@ -4,7 +4,7 @@
 <div class="grid-container">
 
   <header class="header">
-    <h3>My Bookings</h3>
+    <h3 id="header"> <%= current_user.name %>'s Bookings As A Hero</h3>
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
@@ -27,16 +27,16 @@
       <div id="Bookings" class="tabcontent">
         <h6>Pending Bookings</h6>
         <div class="dashboard_card">
-          <ol>
+          <ol style="line-height: 2rem">
             <% @bookings.each do |booking| %>
               <% if booking.task.date >= @current_time %>
                 <li>
-                  <%= booking.task.category.name %>
+                  <%= booking.task.category.name.upcase %>
                   <%= booking.task.date.strftime("at %l:%M%p on %d %b %Y") %>
                   <% if booking.status %>
-                    - <em><%= link_to "Confirmed", booking_path(booking) %></em> &#128077
+                    - <em><%= link_to "Confirmed", booking_path(booking) %></em>  <i class="fas fa-thumbs-up" style="color: rgba(138, 171, 137, 0.6)"></i>
                   <% else %>
-                    - <em><%= link_to "Pending Confirmation", booking_path(booking) %></em> &#128078
+                    - <em><%= link_to "Pending Confirmation", booking_path(booking) %></em>  <i class="fas fa-thumbs-down" style="color: rgba(255, 77, 52, 0.6)"></i>
                   <% end %>
                 </li>
               <% end %>
@@ -48,11 +48,11 @@
       <div id="Bookings" class="tabcontent">
         <h6>Completed Bookings</h6>
         <div class="dashboard_card">
-          <ol>
+          <ol style="line-height: 2rem">
             <% @bookings.each do |booking| %>
               <% if booking.task.date < @current_time && booking.status %>
                 <li>
-                  <%= link_to booking.task.category.name, booking_path(booking) %>
+                  <%= link_to booking.task.category.name.upcase, booking_path(booking) %>
                   <%= booking.task.date.strftime("%l:%M%p on %d %b %Y") %>
                 </li>
               <% end %>
@@ -64,11 +64,11 @@
       <div id="Bookings" class="tabcontent">
         <h6>Expired Bookings</h6>
         <div class="dashboard_card">
-          <ol>
+          <ol style="line-height: 2rem">
             <% @bookings.each do |booking| %>
               <% if booking.task.date < @current_time && !booking.status %>
                 <li>
-                  <%= link_to booking.task.category.name, booking_path(booking) %>
+                  <%= link_to booking.task.category.name.upcase, booking_path(booking) %>
                   <%= booking.task.date.strftime("%l:%M%p on %d %b %Y") %>
                   - <em><%= link_to "Remove", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %></em>
                 </li>
@@ -79,5 +79,10 @@
       </div>
     </div>
   </main>
-  <chat class="chat"></chat>
+  <chat class="chat">
+    <h6 class="profile_font" style="padding-top: 75px">About Me</h6>
+        <div class="bio_card">
+          <p>Blah Blah</p>
+        </div>
+  </chat>
 </div>
