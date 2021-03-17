@@ -25,6 +25,7 @@ class TasksController < ApplicationController
       }
     end
     @current_time = DateTime.now
+    @current_date = Date.today
   end
 
   def new
@@ -43,7 +44,9 @@ class TasksController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @current_date = Date.today
+  end
 
   def edit; end
 

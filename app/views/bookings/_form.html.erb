@@ -3,14 +3,6 @@
     <% if user_signed_in? && @user == current_user %>
       <%= f.input :status %>
     <% end %>
-
-  <!-- insert user avatar -->
-    <%  if user_signed_in? && current_user.avatar.attached? %>
-      <%= cl_image_tag current_user.avatar.key, class: "card-booking-user avatar-bordered" %>
-        <% else %>
-      <%= image_tag 'avatar_dummy.png', class: "card-booking-user avatar-bordered", alt: "alttext"%>
-        <% end %>
-
     <%= f.submit "Volunteer", class: "btn-green-card" %>
   <% end %>
 </div>

@@ -39,4 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initUpdateNavbarOnScroll();
   initFlatpickr();
+  $('[data-toggle="tooltip"]').tooltip()
 });
