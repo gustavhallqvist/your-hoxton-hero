@@ -1,0 +1,52 @@
+.imgbox {
+   display: grid;
+   height: 100%;
+  }
+.center-fit {
+   max-width: 100%;
+   max-height: 100vh;
+   margin: auto;
+  }
+.title {
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 200px;
+  font-style: bold;
+  text-align: center;
+  animation: netflix_style 3.5s infinite;
+  width: 100px;
+  height: 60px;
+  line-height: 60px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:200px;
+  color:darkblue;
+  opacity:0.5;
+  text-shadow:2px 2px 4px #000000;
+}
+
+.text{
+  text-align: center;
+  font-family: 'Gilda Display', serif;
+  font-size: 25px;
+  font-style: bold;
+  text-align: center;
+  width: 350px;
+  height: 30px;
+  line-height: 30px;
+  margin: auto;
+  position: absolute;
+  top: 200px;
+  bottom: 0;
+  left: 0;
+  right:0;
+  color:grey;
+
+
+}
+body{
+  background:lightblue;
+}

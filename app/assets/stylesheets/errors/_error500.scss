@@ -1,0 +1,142 @@
+.ccontent {
+  // position: relative;
+  // z-index: 2;
+  // line-height: 3.5em;
+
+  &__header {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 400;
+
+    &--strong {
+      font-weight: 700;
+      // text-shadow: 5px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &:first-of-type {
+      font-weight: 700;
+      // display: inline-block;
+      // border-bottom: 2px solid black;
+      // margin-bottom: 0.5em;
+    }
+  }
+}
+
+// Search error settings and possible loading spinner settings
+
+.search-error {
+  // position: absolute;
+  top: 2%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.search-fetch {
+  z-index: 4;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  // transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+$color-primary: #30A9DE;
+$color-secondary: #30A9DE;
+$color-tertiary: #30A9DE;
+$color-primary-light: #6AAFE6;
+$color-primary-dark: #8EC0E4;
+$Distance: 1000px;
+
+.Container {
+  text-align: center;
+  position: relative;
+}
+
+.MainTitle {
+  display: block;
+  font-size: 3rem;
+  font-weight: lighter;
+  // text-shadow: 5px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.MainDescription {
+  max-width: 50%;
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+.MainGraphic {
+  position: relative;
+}
+
+.Cog {
+  width: 14rem;
+  height: 14rem;
+  // fill: $color-primary-light;
+  transition: easeInOutQuint();
+  animation: CogAnimation 5s 1 forwards;
+  // cursor: pointer;
+}
+
+// .Spanner {
+//   position: absolute;
+//   transform: rotate(20deg);
+//   top: 10%;
+//   left: 20%;
+//   width: 10rem;
+//   height: 10rem;
+//   fill: $color-primary-dark;
+// }
+//
+// .Hummingbird{
+//   position: absolute;
+//   width: 3rem;
+//   height: 3rem;
+//   fill: $color-primary;
+//   left: 50%;
+//   top: 50%;
+//   transform: translate(-50%,-50%);
+// }
+
+@keyframes CogAnimation {
+    0%   {transform: rotate(0deg);}
+    60% {transform: rotate(360deg);}
+    100% {transform: rotate(320deg);}
+}
+
+// @keyframes CogAnimation {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   90% {
+//     transform: rotate(180deg);
+//     transition-timing-function: linear;
+//   }
+//   100% {
+//     transform: rotate(100deg);
+//     transition-timing-function: ease-out;
+//   }
+// }
+
+@keyframes ColorFiesta {
+  0% {
+    background: #a5dff9;
+  }
+  20% {
+    background: #ef5285;
+  }
+  40% {
+    background: #60c5ba;
+  }
+  60% {
+    background: #feee7d;
+  }
+  80% {
+    background: #6a60a9;
+  }
+  100% {
+    background: #a5dff9;
+  }
+}
+
