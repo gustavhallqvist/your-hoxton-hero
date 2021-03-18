@@ -74,7 +74,7 @@
             <% @tasks.each do |task| %>
               <% if task.date < @current_time && task.bookings.where(status: true).length < 1 %>
                 <li>
-                  <%= link_to task.category.name, task_path(task) %>
+                  <%= link_to task.category.name.upcase, task_path(task) %>
                   <%= task.date.strftime("%l:%M%p on %d %b %Y") %>
                   - <em><%= link_to "Remove", task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %></em>
                 </li>
@@ -85,5 +85,10 @@
       </div>
     </div>
   </main>
-  <chat class="chat"></chat>
+  <chat class="chat">
+    <h6 class="profile_font" style="padding-top: 75px">About Me</h6>
+      <div class="bio_card">
+        <p> <%= current_user.bio %> </p>
+      </div>
+  </chat>
 </div>

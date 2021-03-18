@@ -4,7 +4,7 @@
 <div class="grid-container">
 
   <header class="header">
-    <h3>My Reviews</h3>
+    <h3 id="header"><%= current_user.name %>'s Reviews As A Hero</h3>
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
@@ -25,50 +25,50 @@
   <main class="main">
     <div class="container">
       <div id="Rating" class="tabcontent">
-        <h6>My HERO Rating</h6>
-        <div class="dashboard_card">
-          <% sum = 0 %>
-          <% reviews = 0 %>
-          <% @bookings.each do |booking| %>
-            <% if booking.booking_review %>
-              <% sum += booking.booking_review.rating %>
-              <% reviews += 1 %>
-            <% end %>
-          <% end %>
-          <% @tasks.each do |task| %>
-            <% if task.task_review %>
-              <% sum += task.task_review.rating %>
-              <% reviews += 1 %>
-            <% end %>
-          <% end %>
-          <% if reviews != 0 %>
-            <%= sum / reviews %> / 5 &#11088
-          <% else %>
-            <em>No Reviews</em>
-          <% end %>
-        </div>
-      </div>
-
-      <div id="Reviews" class="tabcontent">
-        <h6>Recent HERO Reviews</h6>
-        <div class="dashboard_card">
-          <div class="d-flex flex-wrap" id="review-mural">
+        <h6 style="text-align: center">My HERO Rating</h6>
+          <div class="row justify-content-md-center">
+            <div class="rating_card">
+            <% sum = 0 %>
+            <% reviews = 0 %>
             <% @bookings.each do |booking| %>
               <% if booking.booking_review %>
-                <div class="card review-card" style="width: 18rem;">
-                  <div class="card-body">
-                    <h5 class="card-title"><% (booking.booking_review.rating).times do %> &#11088 <% end %></h5>
-                    <h5 class="card-title">"<%= booking.booking_review.comment %>"</h5>
-                    <h5 class="card-title"><em>from <%= booking.booking_review.user.name %></em></h5>
+                <% sum += booking.booking_review.rating %>
+                <% reviews += 1 %>
+                <% end %>
+              <% end %>
+            <% @tasks.each do |task| %>
+              <% if task.task_review %>
+                <% sum += task.task_review.rating %>
+                <% reviews += 1 %>
+              <% end %>
+            <% end %>
+            <% if reviews != 0 %>
+              <h5> <%= sum / reviews %> / 5 <i class="fas fa-star" style="color: #FACC55;"></i></h5>
+            <% else %>
+              <em >No Reviews</em>
+            <% end %>
+            </div>
+          </div>
+        </div>
+
+      <div id="Reviews" class="tabcontent">
+        <h6 style="text-align: center;">Recent HERO Reviews</h6>
+
+          <div class="d-flex flex-wrap justify-content-between m-3" id="review-mural">
+            <% @bookings.each do |booking| %>
+              <% if booking.booking_review %>
+                <div class="card-reviews" >
+                    <h6><% (booking.booking_review.rating).times do %> <i class="fas fa-star" style="color: #FACC55"></i> <% end %></h6>
+                    <h6>"<%= booking.booking_review.comment %>"</h6>
+                    <h6><em>from <%= booking.booking_review.user.name %></em></h6>
                   </div>
-                </div>
               <% end %>
             <% end %>
             <% @tasks.each do |task| %>
               <% if task.task_review %>
                 <div class="card review-card" style="width: 18rem;">
                   <div class="card-body">
-                    <h5 class="card-title"><% (task.task_review.rating).times do %> &#11088 <% end %></h5>
+                    <h5 class="card-title"><% (task.task_review.rating).times do %> <i class="fas fa-star" style="color: #FACC55"></i> <% end %></h5>
                     <h5 class="card-title">"<%= task.task_review.comment %>"</h5>
                     <h5 class="card-title"><em>from <%= task.task_review.user.name %></em></h5>
                   </div>
@@ -77,8 +77,14 @@
             <% end %>
           </div>
         </div>
-      </div>
+
     </div>
+
   </main>
-  <chat class="chat"></chat>
+  <chat class="chat">
+    <h6 class="profile_font" style="padding-top: 75px">About Me</h6>
+        <div class="bio_card">
+          <p> <%= current_user.bio %> </p>
+        </div>
+  </chat>
 </div>

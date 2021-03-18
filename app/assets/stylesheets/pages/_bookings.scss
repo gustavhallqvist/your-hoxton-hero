@@ -29,12 +29,21 @@
 .main {
   grid-area: main;
   background-color: white;
+  a {
+    // text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+  font-weight: 700;
+  text-decoration: none;
+  }
 }
 
 .chat {
   grid-area: chat;
   background-color: rgba(250, 204, 85, 0.2);
-  height: 120vh;
+  height: 100vh;
+  position: sticky relative;
 }
 
 .sidenav__list {
@@ -48,9 +57,15 @@
   color: rgba(138, 171, 137, 0.9);
 }
 
+.sidenav__list-item a {
+    text-decoration: none;
+    color: rgba(138, 171, 137, 0.9);
+  }
+
 .sidenav__list-item:hover {
   background-color: rgba(138, 171, 137, 0.3);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .profile_font {
@@ -68,15 +83,27 @@
   padding: 12px;
 }
 
+.rating_card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 32px;
+}
+
 .bio_card {
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   border-radius: 4px;
   min-height: 60vh;
-  padding: 12px;
+  padding: 24px;
   background-color: white;
   margin-left: 16px;
   margin-right: 16px;
   opacity: 0.9;
+  line-height: 2rem;
 }
 
 .btn_dashboard {
