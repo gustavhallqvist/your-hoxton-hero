@@ -4,7 +4,7 @@
 <div class="grid-container">
 
   <header class="header">
-   <h3>My Tasks</h3>
+   <h3 id="header"> <%= current_user.name %>'s Requested Tasks</h3>
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
@@ -27,16 +27,16 @@
       <div id="Tasks" class="tabcontent">
         <h6>Pending Tasks</h6>
         <div class="dashboard_card">
-          <ol>
+          <ol style="line-height: 2rem">
             <% @tasks.each do |task| %>
               <% if task.date >= @current_time %>
                 <li>
-                  <%= task.category.name %>
+                  <%= task.category.name.upcase %>
                   <%= task.date.strftime("at %l:%M%p on %d %b %Y") %>
                   <% if task.bookings.where(status: true).length > 0 %>
-                    - <em><%= link_to "Confirmed", task_path(task) %></em> &#128077
+                    - <em><%= link_to "Confirmed", task_path(task) %></em> <i class="fas fa-thumbs-up" style="color: rgba(138, 171, 137, 0.6)"></i>
                   <% else %>
-                    - <em><%= link_to "Pending Confirmation", task_path(task) %></em> &#128078
+                    - <em><%= link_to "Pending Confirmation", task_path(task) %></em> <i class="fas fa-thumbs-down" style="color: rgba(255, 77, 52, 0.6)"></i>
                   <% end %>
                 </li>
               <% end %>
@@ -48,7 +48,7 @@
       <div id="Tasks" class="tabcontent">
         <h6>Completed Tasks</h6>
         <div class="dashboard_card">
-          <ol>
+          <ol style="line-height: 2rem">
             <% @tasks.each do |task| %>
               <% if task.date < @current_time && task.bookings.where(status: true).length > 1 %>
                 <li>
@@ -70,11 +70,11 @@
       <div id="Tasks" class="tabcontent">
         <h6>Expired Tasks</h6>
         <div class="dashboard_card">
-          <ol>
+          <ol style="line-height: 2rem">
             <% @tasks.each do |task| %>
               <% if task.date < @current_time && task.bookings.where(status: true).length < 1 %>
                 <li>
-                  <%= link_to task.category.name, task_path(task) %>
+                  <%= link_to task.category.name.upcase, task_path(task) %>
                   <%= task.date.strftime("%l:%M%p on %d %b %Y") %>
                   - <em><%= link_to "Remove", task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %></em>
                 </li>
@@ -85,5 +85,10 @@
       </div>
     </div>
   </main>
-  <chat class="chat"></chat>
+  <chat class="chat">
+    <h6 class="profile_font" style="padding-top: 75px">About Me</h6>
+      <div class="bio_card">
+        <p> <%= current_user.bio %> </p>
+      </div>
+  </chat>
 </div>
