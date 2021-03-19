@@ -18,7 +18,7 @@
         </li>
         <li class="nav-item">
           <button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  class="btn-red"
   id="checkout-button-price_1IVgVCF6fb1ssZ6XpGxVWg5j"
   role="link"
   type="button"
@@ -48,8 +48,8 @@
        * Instead use one of the strategies described in
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
-      successUrl: 'https://your-website.com/success',
-      cancelUrl: 'https://your-website.com/canceled',
+      successUrl: 'http://www.yourhoxtonhero.com/tasks',
+      cancelUrl: 'http://localhost:3000/404.html',
     })
     .then(function (result) {
       if (result.error) {
