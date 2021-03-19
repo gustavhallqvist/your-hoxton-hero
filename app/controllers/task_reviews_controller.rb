@@ -13,17 +13,20 @@ before_action :set_task_review, only: [:show, :edit, :update, :destroy]
 
   def new
     @task_review = TaskReview.new
+    @task = Task.find(params[:task_id])
+    authorize @task_review
   end
 
   def create
     @task_review = TaskReview.new(task_review_params)
     @task_review.user = current_user
-    @task_review.booking = Booking.find(params[:booking_id])
+    @task_review.task = Task.find(params[:task_id])
     if @task_review.save
-      redirect_to tasks_path
+      redirect_to bookings_path
     else
       render :new
     end
+    authorize @task_review
   end
 
   def show; end
