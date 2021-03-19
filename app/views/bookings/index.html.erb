@@ -52,8 +52,14 @@
             <% @bookings.each do |booking| %>
               <% if booking.task.date < @current_time && booking.status %>
                 <li>
+                  You saved the day for <%= link_to booking.task.user.name, user_path(booking.task.user) %> -
                   <%= link_to booking.task.category.name.upcase, booking_path(booking) %>
-                  <%= booking.task.date.strftime("%l:%M%p on %d %b %Y") %>
+                  <%= booking.task.date.strftime("at %l:%M%p on %d %b %Y") %>
+                  <% if booking.task.task_review %>
+                    - <em><% booking.task.task_review.rating.times do %>&#11088<% end %></em>
+                  <% else %>
+                    - <em><%= link_to "Leave a Review", new_task_task_review_path(booking.task) %></em>
+                  <% end %>
                 </li>
               <% end %>
             <% end %>
