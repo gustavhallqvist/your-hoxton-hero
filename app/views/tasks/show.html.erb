@@ -17,6 +17,7 @@
 <% if current_user == @task.user  %>
   <div class="home_wrapper">
     <h2 class="text-center">Here are your Heroes</h2>
+    <% end %>
     <div class="d-flex justify-content-center">
       <% Booking.where(task: @task).each do |booking| %>
         <div class="d-flex flex-column align-items-center m-5">

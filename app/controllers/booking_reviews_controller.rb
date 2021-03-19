@@ -7,6 +7,8 @@ class BookingReviewsController < ApplicationController
 
   def new
     @booking_review = BookingReview.new
+    @booking = Booking.find(params[:booking_id])
+    authorize @booking_review
   end
 
   def create
@@ -14,10 +16,11 @@ class BookingReviewsController < ApplicationController
     @booking_review.user = current_user
     @booking_review.booking = Booking.find(params[:booking_id])
     if @booking_review.save
-      redirect_to bookings_path
+      redirect_to dashboard_tasks_path
     else
       render :new
     end
+    authorize @booking_review
   end
 
   def show; end
