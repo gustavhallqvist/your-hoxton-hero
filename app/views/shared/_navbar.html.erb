@@ -48,8 +48,8 @@
        * Instead use one of the strategies described in
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
-      successUrl: 'http://www.yourhoxtonhero.com/tasks',
-      cancelUrl: 'http://localhost:3000/404.html',
+      successUrl: 'http://www.yourhoxtonhero.com/donations',
+      cancelUrl: 'http://www.yourhoxtonhero.com/nondonations',
     })
     .then(function (result) {
       if (result.error) {
