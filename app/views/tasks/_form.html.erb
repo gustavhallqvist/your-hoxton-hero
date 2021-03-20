@@ -1,5 +1,5 @@
-<div class="container mt-1" >
-  <div class="d-flex border mt-3 mb-3">
+<div class="container mt-1">
+  <div class="d-flex mt-3 mb-3" style="box-decoration-break: none">
   <%= simple_form_for (@task) do |f| %>
     <%= f.association :category,
       as: :radio_buttons,
@@ -11,33 +11,29 @@
   </div>
 
 
-    <div class="d-flex border" >
+    <div class="d-flex mb-3" style="background-color: rgba(250, 204, 85, 0.1); padding: 32px; border-radius: 8px">
       <div class= "col-6">
-        <h1>When</h1>
+        <h2>When?</h2>
         <div class="d-flex">
           <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker", style: "display: none;"}, style: "display: none;" %>
         </div>
       </div>
       <div class= "col-6" >
-        <h1>Task details</h1>
+        <h2>Task details</h2>
         <div class="d-flex row">
           <div class="col-12">
-            <%= f.input :description, input_html: {style: "height: 250px;" } %>
+            <%= f.input :description, input_html: {style: "height: 250px;" }, placeholder: "Tell your HERO all the details..." %>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-12 border mt-3">
-      <%= f.input :address %>
+    <div class="col-12 mt-3" style="background-color: rgba(138, 171, 137, 0.1); padding: 32px; border-radius: 8px">
+      <h2>Where?</h2>
+      <%= f.input :address, hint: "Enter the full address and postcode of your task location" %>
     </div>
     <div class="d-flex justify-content-center">
-      <%= f.submit "Create Task", class: "btn btn-new-primary" %>
+      <%= f.submit "Create Task", class: "btn-outline-lg" %>
     </div>
   <% end %>
 </div>
-
-
-
-
-
 
