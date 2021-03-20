@@ -1,35 +1,22 @@
-<div class= "d-flex justify-content-center">
-  <div class=card-confirmation>
-    <div class="container card-confirmation-info ">
-      <div class="card border-0" style="text-align: justfiy-content-center; background: transparent;">
-        <div class="icon_card">
-          <%= image_tag "icons/#{@task.category.icon}", class: "w-100"%>
-        </div>
-            <h1>Your <span><%= @task.category.name %></span> Hero has been requested </h1>
-            <p><b>Where:</b> <%= @task.address %><b></p>
-            <p>When:</b> <%= @task.date.strftime('%Y-%M-%D') %></p>
-            <p><b>Extra description:</b> <%= @task.description %> </p>
-          </div>
-        </div>
-      </div>
-</div>
-
-<% if current_user == @task.user  %>
-  <div class="home_wrapper">
-    <h2 class="text-center">Here are your Heroes</h2>
-    <div class="d-flex justify-content-center">
-      <% Booking.where(task: @task).each do |booking| %>
-        <div class="d-flex flex-column align-items-center m-5">
-          <%= link_to user_path(booking.user), class: "mb-1" do %>
-            <% if booking.user.avatar.attached? %>
-              <%= cl_image_tag booking.user.avatar.key, class: "avatar-large" %>
-            <% else %>
-              <%= image_tag 'avatar_dummy.png', class: "avatar-large", alt: "alttext" %>
-            <% end %>
+<div class= "d-flex justify-content-center mt-3 ">
+  <div class="card-confirmation card-radius">
+    <div class=task-headers>
+      <p>Choose your Hero</p>
+    </div>
+    <div class=card-confirmation-left>
+       <% Booking.where(task: @task).each do |booking| %>
+       <div class="hero-card">
+          <% if booking.user.avatar.attached? %>
+            <%= cl_image_tag booking.user.avatar.key, class: "hero-avatar" %>
+          <% else %>
+            <%= image_tag 'avatar_dummy.png', class: "hero-avatar", alt: "alttext" %>
           <% end %>
-          <%= link_to "#{booking.user.name} #{booking.user.surname}" , user_path %>
-          <%= ((@current_date - booking.user.date_of_birth).to_i)/365.25.to_i %> yrs
-          <div class="mt-1 mb-2">
+          <div class="hero-details">
+            <h3>
+              <%= link_to "#{booking.user.name} #{booking.user.surname}", user_path(booking.user)  %>
+            </h3>
+            <div class="d-flex">
+            <p class="hero-age"> <%= ((@current_date - booking.user.date_of_birth).to_i)/365.25.to_i %> years old </p>
             <% sum = 0 %>
             <% reviews = 0 %>
             <% booking.user.bookings.each do %>
@@ -51,25 +38,79 @@
             <% else %>
               <em>No Reviews</em>
             <% end %>
+            </div>
           </div>
+          <div>
           <%= simple_form_for booking, remote: true do |f| %>
             <%= f.hidden_field :status, value: true %>
-            <%= f.submit "Confirm", class: "btn-green-card" %>
+            <%= f.submit "Confirm", class: "hero-button btn", "data-target" => "#exampleModal", "data-toggle" => "modal" %>
           <% end %>
-        </div>
-      <% end %>
-    </div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <div class="d-flex justify-content-center" style="margin-top: 48px">
-      <div class="icon_card_grid">
+          </div>
+       </div>
+
+       <% end %>
+    </div>
+    <div class="card-confirmation-right">
+
+      <div class=task-info>
+        <div class="d-flex align-items-center">
+          <div class="icon_card-hero mb-4 mt-1">
+            <%= image_tag "icons/#{@task.category.icon}", class: "w-100"%>
+          </div>
+          <p class="ml-3">Hi 👋 <%= current_user.name %></p>
+        </div>
+        <h3>Select your <span><%= @task.category.name %></span> Hero from the list </h3>
+          <div class="task-details">
+            <p><b>Where:</b> <%= @task.address %><b></p>
+            <p>When:</b> <%= @task.date.strftime('%Y-%M-%D') %></p>
+            <p><b>Extra description:</b> <%= @task.description %> </p>
+          </div>
       </div>
     </div>
   </div>
-  <h2 class="btn btn-new-primary" ><%= link_to 'Back', tasks_path %> </h2>
-<% else %>
 
-  <p>I'm the Hero</p>
-<% end %>
+</div>
+<div class="div-hero"> </div>
+
+
+  <!-- <div class=card-confirmation>
+    <div class="container card-confirmation-info ">
+      <div class="card border-0" style="text-align: justfiy-content-center; background: transparent;">
+        <div class="icon_card mb-4 mt-1">
+          <%#= image_tag "icons/#{@task.category.icon}", class: "w-100"%>
+        </div>
+            <h1>Your <span><%#= @task.category.name %></span> Hero has been requested </h1>
+            <p><b>Where:</b> <%= @task.address %><b></p>
+            <p>When:</b> <%#= @task.date.strftime('%Y-%M-%D') %></p>
+            <p><b>Extra description:</b> <%= @task.description %> </p>
+          </div>
+        </div>
+      </div>
+</div> -->
+
+
+
+
 
 
 
