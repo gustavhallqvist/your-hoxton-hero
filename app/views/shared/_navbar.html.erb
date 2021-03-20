@@ -16,15 +16,9 @@
         <li class="nav-item">
           <%= link_to "How it works", "#{root_path}#how_it_works" , class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-price_1IVgVCF6fb1ssZ6XpGxVWg5j"
-  role="link"
-  type="button"
->
-  Donate
-</button>
+        <li class="nav-item nav-link" id="checkout-button-price_1IVgVCF6fb1ssZ6XpGxVWg5j" role="link" type="button">
+          Donate
+        </li>
 
 <div id="error-message"></div>
 
@@ -48,8 +42,8 @@
        * Instead use one of the strategies described in
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
-      successUrl: 'https://your-website.com/success',
-      cancelUrl: 'https://your-website.com/canceled',
+      successUrl: 'http://www.yourhoxtonhero.com/donations',
+      cancelUrl: 'http://www.yourhoxtonhero.com/nondonations',
     })
     .then(function (result) {
       if (result.error) {

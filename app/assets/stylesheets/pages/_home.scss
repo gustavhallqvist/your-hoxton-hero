@@ -90,7 +90,7 @@ html {
 
 .testimonial_wrapper {
   padding: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
   background: rgba(138, 171, 137, 0.1);
   position: relative;
 }
@@ -110,7 +110,7 @@ html {
   padding: 40px;
   height: auto;
   line-height: 28px;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
 }
 
 .avatar_card {
@@ -122,7 +122,7 @@ html {
           display: block;
           border-radius: 50%;
           position: relative;
-          bottom: -120px;
+          bottom: -65%;
           border: 2px solid white;
         }
 }
@@ -164,4 +164,56 @@ html {
  }
 }
 
+.howto-grid {
+  display: grid;
+  grid-gap: 64px;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 64px;
+  margin-right: 64px;
+  padding-bottom: 32px;
+  p {
+    font-size: 20px;
+    padding: 32px;
+    letter-spacing: 2px;
+    text-align: center;
+    vertical-align: center;
+  }
+}
 
+.howto-card {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3A6B7E;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 40px 0px 40px 0px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+
+
+.move-me-3 {
+  animation: move-in-steps 32s infinite;
+}
+
+.move-me-3:hover {
+  // animation: move-in-steps 32s infinite;
+  // transform: scale(.9)
+}
+
+@keyframes move-in-steps {
+  40% {
+    left: 0;
+    background: #3A6B7E;
+    color: white;
+  }
+  100% {
+    left: 100%;
+    background: white;
+    color: #3A6B7E;
+  }
+}

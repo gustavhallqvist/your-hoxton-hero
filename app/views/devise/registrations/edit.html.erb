@@ -7,7 +7,7 @@
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
-      <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-large" %>
+      <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-new" %>
     <% else %>
       <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
     <% end %>
@@ -71,17 +71,16 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Update", class: "btn-green"%>
+        <%= f.button :submit, "Update", class: "btn-green" %>
       </div>
-        <% end %>
-
+      <% end %>
       <h6>Cancel my account</h6>
+
       <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
       <%= link_to "Back", :back, class: "btn-outline" %>
-      </div>
     </div>
   </main>
-  <chat class="chat">
-  </chat>
+  <chat class="chat"></chat>
 </div>
 

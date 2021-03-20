@@ -8,10 +8,10 @@
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
-                <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-large" %>
-              <% else %>
-                <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
-              <% end %>
+      <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-new" %>
+    <% else %>
+      <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
+    <% end %>
     <h6 class="profile_font"> Hello <%= current_user.name %>!</h6>
     <ul class="sidenav__list">
       <li class="sidenav__list-item"><%= link_to "Profile", edit_user_registration_path %></li>
@@ -50,15 +50,15 @@
         <div class="dashboard_card">
           <ol style="line-height: 2rem">
             <% @tasks.each do |task| %>
-              <% if task.date < @current_time && task.bookings.where(status: true).length > 1 %>
+              <% if task.date < @current_time && task.bookings.where(status: true).length >= 1 %>
                 <li>
-                  <%= link_to task.category.name, task_path(task) %>
-                  <%= task.date.strftime("%l:%M%p on %d %b %Y") %>
-                  <% booking = task.bookings.where(status: true).first %>
-                  <% if booking.booking_review %>
-                    - <em>Review Submitted</em>
+                  <%= link_to task.bookings.where(status: true).first.user.name, user_path(task.bookings.where(status: true).first.user) %> saved the day -
+                  <%= link_to task.category.name.upcase, task_path(task) %>
+                  <%= task.date.strftime("at %l:%M%p on %d %b %Y") %>
+                  <% if task.bookings.where(status: true).first.booking_review %>
+                    - <em><% task.bookings.where(status: true).first.booking_review.rating.times do %>&#11088<% end %></em>
                   <% else %>
-                    - <em><%= link_to "Leave a Review", new_booking_booking_review_path(booking) %></em>
+                    - <em><%= link_to "Leave a Review", new_booking_booking_review_path(task.bookings.where(status: true).first) %></em>
                   <% end %>
                 </li>
               <% end %>
