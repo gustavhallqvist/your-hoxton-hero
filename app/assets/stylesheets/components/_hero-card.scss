@@ -1,0 +1,136 @@
+.hero-card {
+display: flex;
+height: 140px;
+width: 100%;
+padding: 18px 26px;
+border-bottom: 1px solid rgb(220, 220, 220);
+align-items: center;
+}
+.hero-avatar {
+max-height: 60px;
+min-height: 60px;
+max-width: 60px;
+min-width: 60px;
+border-radius: 50%;
+margin-right: 20px;
+}
+
+.hero-details{
+h3{
+    font-size: 20px;
+    color: #3A6B7E;
+  }
+}
+.hero-age{
+
+  margin-right: 18px;
+}
+
+.hero-button{
+  margin-left: 24px;
+  color: white;
+  background: rgba( 58, 107, 126, 0.80 );
+  border-radius: 12px 0px 12px 0px;
+  padding: 6px 12px;
+}
+.card-radius {
+
+  border-radius: 40px 0px 40px 0px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+}
+.div-hero {
+ display: block;
+ position: sticky;
+ top: 100%;
+ height: 200px;
+ background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1470 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(250, 204, 85, 0.4)" d="M 0 185 C 373 185 373 110 746 110 L 746 110 L 746 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(250, 204, 85, 0.4)" d="M 745 110 C 1115.5 110 1115.5 0 1486 0 L 1486 0 L 1486 0 L 745 0 Z" stroke-width="0"></path> </svg>');
+
+ background-size: cover;
+ background-repeat: no-repeat;
+ transform: rotate(180deg);
+
+}
+
+@media (max-width:1469px) {
+ .div-hero {
+   background-size: contain;
+ }
+}
+
+.task-info {
+  position: relative;
+    padding: 25px;
+    height: 250px;
+  width: 80%;
+      background: linear-gradient(106deg
+, #facc5566, #fff);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  webkit-backdrop-filter: blur(6.5px);
+  border-radius: 50px 0px 50px 0px;
+
+  margin-top: 50px;
+  margin-left: 50px;
+  h3{
+    font-size: 16px;
+      color: #3A6B7E;
+      line-height:16px;
+  }
+  p{
+    font-size: 16px;
+      color: #3A6B7E;
+  }
+}
+.task-details{
+      padding: 25px;
+    background: rgba( 58, 107, 126, 0.80 );
+    color: white;
+    box-shadow: 0px 6px 24px rgba(0,0,0, 0.5);
+    border-radius: 40px 0px 40px 0px;
+    backdrop-filter: blur( 0.0px );
+    webkit-backdrop-filter: blur( 0.0px );
+    position: inherit;
+    left: 45px;
+    top: 30px;
+    p{
+color: white;
+
+    }
+}
+.task-headers{
+  position: absolute;
+  padding: 24px 40px;
+    background: rgba( 58, 107, 126, 0.80 );
+
+    box-shadow: 0px 6px 24px rgba(0,0,0, 0.5);
+    border-radius: 40px 0px 40px 0px;
+    backdrop-filter: blur( 0.0px );
+    webkit-backdrop-filter: blur( 0.0px );
+    left: 62px;
+    top: 112px;
+    p{
+color: white;
+font-size: 26px;
+margin: 0px;
+
+    }
+}
+.icon_card-hero{
+max-height: 80px;
+min-height: 80px;
+max-width: 80px;
+min-width: 80px;
+background: white;
+background-position: center;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3A6B7E;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
