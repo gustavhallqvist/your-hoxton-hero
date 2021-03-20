@@ -1,5 +1,5 @@
 meta_product_name: "Your Hoxton Hero"
 meta_title: "Your Hoxton Hero - Find Your Local HERO Today!"
-meta_description: "A community service app connecting people in need with local HERO's"
-meta_image: "hero_banner.png" # should exist in `app/assets/images/`
+meta_description: "A community service app connecting people in need with local HEROES"
+meta_image: "OG_image.png" # should exist in `app/assets/images/`
 twitter_account: "@yourhoxtonhero"   # required for Twitter Cards
