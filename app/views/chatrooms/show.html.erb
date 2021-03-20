@@ -1,13 +1,36 @@
-<div class="d-flex">
-  <div class="list-group w-200px bg-white br-light">
-    <% @chatrooms.each do |chatroom| %>
+
+
+
+<div class="grid-container">
+
+  <header class="header">
+    <h3 id="header"> We are here to help</h3>
+  </header>
+  <aside class="sidenav">
+    <%  if user_signed_in? && current_user.avatar.attached? %>
+                <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-large" %>
+              <% else %>
+                <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
+              <% end %>
+    <h6 class="profile_font"> Hello <%= current_user.name %>!</h6>
+    <ul class="sidenav__list">
+      <li class="sidenav__list-item"><%= link_to "Profile", edit_user_registration_path %></li>
+      <li class="sidenav__list-item"><%= link_to "Tasks", dashboard_tasks_path %></li>
+      <li class="sidenav__list-item"><%= link_to "Bookings", bookings_path %></li>
+      <li class="sidenav__list-item"><%= link_to 'Messages', chatroom_url(Chatroom.ids)%></li>
+      <li class="sidenav__list-item"><%= link_to 'Reviews', task_reviews_path %></li>
+    </ul>
+  </aside>
+
+      <main class="main">
+    <div class="container">
+      <div id="Bookings" class="tabcontent">
+        <div class="dashboard_card">
+          <ol style="line-height: 2rem">
+              <% @chatrooms.each do |chatroom| %>
       <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
     <% end %>
-  </div>
-
-
-  <div class="chatroom">
-    <h1>#<%= @chatroom.name %></h1>
+            <div class="chatroom">
 
     <div>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
@@ -19,3 +42,16 @@
       <%= simple_form_for [ @chatroom, @message ] do |f| %>
         <%= f.input :content, label: false, placeholder: "Message Your Hero" %>
       <% end %>
+        </div>
+      </div>
+          </ol>
+        </div>
+      </div>
+       </main>
+       <chat class="chat">
+    <h6 class="profile_font" style="padding-top: 75px">About Me</h6>
+        <div class="bio_card">
+          <p> <%= current_user.bio %> </p>
+        </div>
+  </chat>
+</div>
