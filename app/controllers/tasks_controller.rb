@@ -8,6 +8,7 @@ class TasksController < ApplicationController
     @tasks = policy_scope(Task).where(user: current_user).order(created_at: :asc)
     @user = current_user
     @current_time = DateTime.now
+    @current_date = Date.today
     authorize @tasks
   end
 

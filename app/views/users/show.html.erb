@@ -88,23 +88,19 @@
     <div class="d-flex flex-wrap" id="review-mural">
       <% @bookings.each do |booking| %>
         <% if booking.booking_review %>
-          <div class="card review-card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><% (booking.booking_review.rating).times do %> &#11088 <% end %></h5>
-              <h5 class="text-secondary">"<%= booking.booking_review.comment %>"</h5>
-              <h5 class="text-secondary"><em>from <%= booking.booking_review.user.name %></em></h5>
-            </div>
+          <div class="card-reviews" style="min-width: 320px;">
+            <h6><% (booking.booking_review.rating).times do %> &#11088 <% end %></h6>
+            <h6>"<%= booking.booking_review.comment %>"</h6>
+            <h6><em>from <%= booking.booking_review.user.name %></em></h6>
           </div>
         <% end %>
       <% end %>
       <% @tasks.each do |task| %>
         <% if task.task_review %>
-          <div class="card review-card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><% (task.task_review.rating).times do %> &#11088 <% end %></h5>
-              <h6 class="text-secondary">"<%= task.task_review.comment %>"</h6>
-              <h6 class="text-secondary"><em>from <%= task.task_review.user.name %></em></h6>
-            </div>
+          <div class="card-reviews" style="min-width: 320px;">
+            <h6><% (task.task_review.rating).times do %> &#11088 <% end %></h6>
+            <h6>"<%= task.task_review.comment %>"</h6>
+            <h6><em>from <%= task.task_review.user.name %></em></h6>
           </div>
         <% end %>
       <% end %>

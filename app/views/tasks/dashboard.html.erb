@@ -86,9 +86,42 @@
     </div>
   </main>
   <chat class="chat">
-    <h6 class="profile_font" style="padding-top: 75px">About Me</h6>
+    <h6 class="profile_font" style="padding-top: 75px">Newsfeed</h6>
       <div class="bio_card">
-        <p> <%= current_user.bio %> </p>
+        <% bookings = [] %>
+        <% @tasks.each do |task| %>
+          <% task.bookings.each do |booking| %>
+            <% bookings << booking %>
+          <% end %>
+        <% end %>
+          <% bookings.sort_by(&:created_at).reverse.first(5).each do |booking| %>
+            <div class="notification-card">
+              <div class="d-flex flex-column justify-content-center">
+                <%= link_to user_path(booking.user) do %>
+                  <div data-toggle="tooltip" data-placement="top" title="<%= booking.user.name %>  <%= booking.user.surname %> (<%= ((@current_date - booking.task.user.date_of_birth).to_i)/365.25.to_i %> yrs)">
+                    <% if booking.user.avatar.attached? %>
+                      <%= cl_image_tag booking.user.avatar.key, class: "notification-avatar", alt: "avatar" %>
+                    <% else %>
+                      <%= image_tag 'avatar_dummy.png', class: "notification-avatar", alt: "avatar" %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div>
+                <%= link_to booking.user.name, user_path(booking.user) %> volunteered for <%= link_to booking.task.category.name, task_path(booking.task) %>
+                <% if (@current_time.to_i - booking.created_at.to_i) < 3600 %>
+                  <em><%= (@current_time.to_i - booking.created_at.to_i) / 60 %> minutes ago</em>
+                <% elsif (@current_time.to_i - booking.created_at.to_i) < 86400 %>
+                  <em><%= (@current_time.to_i - booking.created_at.to_i) / 3600 %> hours ago</em>
+                <% else %>
+                  <em><%= (@current_time.to_i - booking.created_at.to_i) / 86400 %> days ago</em>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <div class="text-center">
+          See All
+        </div>
       </div>
   </chat>
 </div>

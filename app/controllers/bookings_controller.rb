@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :asc)
     @user = current_user
     @current_time = DateTime.now
+    @current_date = Date.today
   end
 
   def new
