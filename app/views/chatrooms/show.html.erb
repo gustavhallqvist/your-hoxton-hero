@@ -8,7 +8,7 @@
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
-                <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-large" %>
+                <%= cl_image_tag current_user.avatar.key, height: 60, width: 60, class: "avatar-new" %>
               <% else %>
                 <%= image_tag 'avatar_dummy.png', class: "avatar-profile", alt: "alttext"%>
               <% end %>
@@ -28,7 +28,7 @@
         <div class="dashboard_card">
           <ol style="line-height: 2rem">
               <% @chatrooms.each do |chatroom| %>
-      <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
+      <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}"%>
     <% end %>
             <div class="chatroom">
 

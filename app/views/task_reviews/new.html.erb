@@ -2,6 +2,6 @@
   <%= simple_form_for [ @task, @task_review ] do |f| %>
     <%= f.input :rating, label: "Rating ⭐️", input_html: { min: '0', max: '5', step: 'any' } %>
     <%= f.input :comment %>
-    <%= f.submit "Leave Review", class: "btn-grn" %>
+    <%= f.submit "Leave Review", class: "btn-outline" %>
   <% end %>
 </div>
