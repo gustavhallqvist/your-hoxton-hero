@@ -56,7 +56,7 @@
                   <%= link_to task.category.name.upcase, task_path(task) %>
                   <%= task.date.strftime("at %l:%M%p on %d %b %Y") %>
                   <% if task.bookings.where(status: true).first.booking_review %>
-                    - <em><% task.bookings.where(status: true).first.booking_review.rating.times do %>&#11088<% end %></em>
+                    - <em><% task.bookings.where(status: true).first.booking_review.rating.times do %><i class="fas fa-star" style="color: #FACC55"></i><% end %></em>
                   <% else %>
                     - <em><%= link_to "Leave a Review", new_booking_booking_review_path(task.bookings.where(status: true).first) %></em>
                   <% end %>
