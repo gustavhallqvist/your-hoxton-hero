@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @user = current_user
     @current_time = DateTime.now
     @current_date = Date.today
+    @task_review = TaskReview.new
   end
 
   def new

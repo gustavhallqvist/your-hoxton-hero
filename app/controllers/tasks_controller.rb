@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     @current_time = DateTime.now
     @current_date = Date.today
     authorize @tasks
+    @booking_review = BookingReview.new
   end
 
   def index
