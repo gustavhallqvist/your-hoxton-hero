@@ -81,6 +81,11 @@
       <%= link_to "Back", :back, class: "btn-outline" %>
     </div>
   </main>
-  <chat class="chat"></chat>
+  <chat class="chat">
+    <h6 class="profile_font" style="padding-top: 75px">About Me</h6>
+        <div class="bio_card">
+          <p> <%= current_user.bio %> </p>
+        </div>
+  </chat>
 </div>
 
