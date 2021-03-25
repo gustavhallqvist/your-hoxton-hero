@@ -2,16 +2,15 @@
   <div class="main-body">
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
-        <div class="card profile-card">
+        <div class="card profile-card user-snapshot">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <br>
               <%  if @user.avatar.attached? %>
-                <%= cl_image_tag @user.avatar.key, class: "avatar-large" %>
+                <%= cl_image_tag @user.avatar.key, class: "avatar-extra-large" %>
               <% else %>
-                <%= image_tag 'avatar_dummy.png', class: "avatar-large", alt: "alttext"%>
+                <%= image_tag 'avatar_dummy.png', class: "avatar-extra-large", alt: "alttext"%>
               <% end %>
-              <div class="mt-3">
+              <div class="mt-2">
                 <h4><%= @user.name %></h4>
                 <p class="text-secondary mb-1"><%= ((@current_date - @user.date_of_birth).to_i)/365.25.to_i %> yrs</p>
                 <p class="text-muted font-size-sm">
@@ -37,7 +36,7 @@
                     <em>No Reviews</em>
                   <% end %>
                 </p>
-                <button class="btn-outline">Message</button>
+                <button class="btn-outline"><%= link_to "Message", chatroom_url(Chatroom.ids) %></button>
               </div>
             </div>
           </div>
@@ -85,10 +84,10 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-wrap justify-content-between m-3" id="review-mural">
+    <div class="d-flex flex-wrap align-items-center justify-content-center" id="review-mural">
       <% @bookings.each do |booking| %>
         <% if booking.booking_review %>
-          <div class="card-reviews">
+          <div class="user-card-reviews">
             <h6><% (booking.booking_review.rating).times do %> <i class="fas fa-star" style="color: #FACC55"></i> <% end %></h6>
             <h6>"<%= booking.booking_review.comment %>"</h6>
             <h6><em>from <%= booking.booking_review.user.name %></em></h6>
@@ -97,7 +96,7 @@
       <% end %>
       <% @tasks.each do |task| %>
         <% if task.task_review %>
-          <div class="card-reviews" style="min-width: 320px;">
+          <div class="user-card-reviews" style="min-width: 320px;">
             <h6><% (task.task_review.rating).times do %> <i class="fas fa-star" style="color: #FACC55"></i> <% end %></h6>
             <h6>"<%= task.task_review.comment %>"</h6>
             <h6><em>from <%= task.task_review.user.name %></em></h6>
