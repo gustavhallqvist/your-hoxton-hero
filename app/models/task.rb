@@ -9,4 +9,5 @@ class Task < ApplicationRecord
   pg_search_scope :search_by_date,
                   against: [:date],
                   using: { tsearch: { prefix: true } }
+  validates :date, presence: true
 end
