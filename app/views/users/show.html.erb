@@ -7,7 +7,7 @@
             <div class="d-flex flex-column align-items-center text-center">
               <br>
               <%  if @user.avatar.attached? %>
-                <%= cl_image_tag current_user.avatar.key, class: "avatar-large" %>
+                <%= cl_image_tag @user.avatar.key, class: "avatar-large" %>
               <% else %>
                 <%= image_tag 'avatar_dummy.png', class: "avatar-large", alt: "alttext"%>
               <% end %>
