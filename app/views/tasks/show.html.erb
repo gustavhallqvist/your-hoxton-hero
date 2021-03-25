@@ -12,7 +12,6 @@
 
        </div>
        <% else %>
-
        <% Booking.where(task: @task).each do |booking| %>
        <div class="hero-card">
           <% if booking.user.avatar.attached? %>
@@ -52,10 +51,10 @@
           <div>
           <%= simple_form_for booking, remote: true do |f| %>
             <%= f.hidden_field :status, value: true %>
-            <%= f.submit "Confirm", class: "hero-button btn", "data-target" => "#exampleModal", "data-toggle" => "modal" %>
+            <%= f.submit "Confirm", class: "hero-button btn", "data-target" => "#exampleModal#{booking.id}", "data-toggle" => "modal" %>
           <% end %>
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModal<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -65,7 +64,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <h1>Your Hero has been selected</h1>
+                  <h1>Your Hero <span style="color: rgba(138, 171, 137, 0.9);"><%= booking.user.name %></span> has been selected</h1>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-lg" data-dismiss="modal">Save changes</button>
@@ -75,8 +74,8 @@
           </div>
 
           </div>
-       </div>
 
+       </div>
        <% end %>
        <% end %>
     </div>

@@ -48,6 +48,7 @@ class TasksController < ApplicationController
 
   def show
     @current_date = Date.today
+    #@booking = Booking.where(task: @task, status: true).first
   end
 
   def edit; end
