@@ -56,7 +56,7 @@
           <div class="card-booking my-2">
             <div class="d-flex card-inner justify-content-between">
               <div class="card-booking-infos" >
-                <p style="font-weight: bold"><%= link_to task.category.name.upcase, task_path(task) %></p>
+                <h6 style="font-weight: bold"><%= task.category.name.upcase %></h6>
                 <p><b>What:</b> <%= task.description %></p>
                 <p><b>Where:</b> <%= task.address %><b></p>
                 <p>When:</b> <%= task.date.strftime("%l:%M%p on %d %b %Y") %></p>
