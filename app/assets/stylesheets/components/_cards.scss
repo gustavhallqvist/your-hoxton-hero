@@ -1,6 +1,6 @@
 .card-booking {
   overflow: hidden;
-  height: 160px;
+  height: 200px;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.05);
   display: flex;
@@ -21,12 +21,23 @@
 }
 
 .card-booking p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
   letter-spacing: 1px;
+}
+
+.card-booking h6 {
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    letter-spacing: 1px;
+    font-family: "Work Sans", "Helvetica", "sans-serif";
 }
 
 .card-booking:hover {
