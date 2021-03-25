@@ -4,7 +4,7 @@
 <div class="grid-container">
 
   <header class="header">
-    <h3 id="header"> I'm here to help</h3>
+    <h3 id="header"> Live Chat</h3>
   </header>
   <aside class="sidenav">
     <%  if user_signed_in? && current_user.avatar.attached? %>
@@ -22,36 +22,32 @@
     </ul>
   </aside>
 
-      <main class="main">
+  <main class="main">
     <div class="container">
       <div id="Bookings" class="tabcontent">
         <div class="dashboard_card">
           <ol style="line-height: 2rem">
-              <% @chatrooms.each do |chatroom| %>
-      <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}"%>
-    <% end %>
             <div class="chatroom">
-
-    <div>
-      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-        <% @chatroom.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
-        <% end %>
-      </div>
-
-      <%= simple_form_for [ @chatroom, @message ] do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message Your Hero" %>
-      <% end %>
-        </div>
-      </div>
+              <div>
+                <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+                  <% @chatroom.messages.each do |message| %>
+                    <%= render "messages/message", message: message %>
+                  <% end %>
+                </div>
+                <%= simple_form_for [ @chatroom, @message ] do |f| %>
+                  <%= f.input :content, label: false, placeholder: "Message Your Hero" %>
+                <% end %>
+              </div>
+            </div>
           </ol>
         </div>
       </div>
-       </main>
-       <chat class="chat">
+    </div>
+  </main>
+  <chat class="chat">
     <h6 class="profile_font" style="padding-top: 75px">About Me</h6>
-        <div class="bio_card">
-          <p> <%= current_user.bio %> </p>
-        </div>
+      <div class="bio_card">
+        <p> <%= current_user.bio %> </p>
+      </div>
   </chat>
 </div>
