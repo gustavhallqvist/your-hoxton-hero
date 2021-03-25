@@ -31,12 +31,12 @@
             <% @tasks.each do |task| %>
               <% if task.date >= @current_time %>
                 <li>
-                  <%= task.category.name.upcase %>
+                  <%= link_to task.category.name.upcase, task_path(task) %>
                   <%= task.date.strftime("at %l:%M%p on %d %b %Y") %>
                   <% if task.bookings.where(status: true).length > 0 %>
-                    - <em><%= link_to "Confirmed", task_path(task) %></em> <i class="fas fa-thumbs-up" style="color: rgba(138, 171, 137, 0.6)"></i>
+                    - <em>Your HERO is <%= link_to task.bookings.where(status: true).first.user.name, user_path(task.bookings.where(status: true).first.user) %></em>
                   <% else %>
-                    - <em><%= link_to "Pending Confirmation", task_path(task) %></em> <i class="fas fa-thumbs-down" style="color: rgba(255, 77, 52, 0.6)"></i>
+                    - <em>Pending Confirmation</em>
                   <% end %>
                 </li>
               <% end %>
@@ -58,7 +58,30 @@
                   <% if task.bookings.where(status: true).first.booking_review %>
                     - <em><% task.bookings.where(status: true).first.booking_review.rating.times do %><i class="fas fa-star" style="color: #FACC55"></i><% end %></em>
                   <% else %>
-                    - <em><%= link_to "Leave a Review", new_booking_booking_review_path(task.bookings.where(status: true).first) %></em>
+                    - <em>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Leave a review for <%= task.bookings.where(status: true).first.user.name %></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <%= simple_form_for [ task.bookings.where(status: true).first, @booking_review ] do |f| %>
+                                <%= f.input :rating, label: "Rating ⭐️", input_html: { min: '0', max: '5', step: 'any' } %>
+                                <%= f.input :comment %>
+                            </div>
+                            <div class="modal-footer">
+                                <%= f.submit "Leave Review", class: "btn-grn" %>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <%= link_to "Leave a Review", "#exampleModal", :class => "btn pl-0", "data-toggle" => "modal" %>
+                      </em>
                   <% end %>
                 </li>
               <% end %>

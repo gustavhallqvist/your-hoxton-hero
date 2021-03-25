@@ -31,12 +31,12 @@
             <% @bookings.each do |booking| %>
               <% if booking.task.date >= @current_time %>
                 <li>
-                  <%= booking.task.category.name.upcase %>
+                  <%= link_to booking.task.category.name.upcase, booking_path(booking) %>
                   <%= booking.task.date.strftime("at %l:%M%p on %d %b %Y") %>
                   <% if booking.status %>
-                    - <em><%= link_to "Confirmed", booking_path(booking) %></em>  <i class="fas fa-thumbs-up" style="color: rgba(138, 171, 137, 0.6)"></i>
+                    - <em>Confirmed</em>
                   <% else %>
-                    - <em><%= link_to "Pending Confirmation", booking_path(booking) %></em>  <i class="fas fa-thumbs-down" style="color: rgba(255, 77, 52, 0.6)"></i>
+                    - <em>Pending Confirmation</em>
                   <% end %>
                 </li>
               <% end %>
@@ -58,7 +58,30 @@
                   <% if booking.task.task_review %>
                     - <em><% booking.task.task_review.rating.times do %>&#11088<% end %></em>
                   <% else %>
-                    - <em><%= link_to "Leave a Review", new_task_task_review_path(booking.task) %></em>
+                    - <em>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Leave a review for <%= booking.task.user.name %></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <%= simple_form_for [ booking.task, @task_review ] do |f| %>
+                                <%= f.input :rating, label: "Rating ⭐️", input_html: { min: '0', max: '5', step: 'any' } %>
+                                <%= f.input :comment %>
+                            </div>
+                            <div class="modal-footer">
+                                <%= f.submit "Leave Review", class: "btn-grn" %>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <%= link_to "Leave a Review", "#exampleModal", :class => "btn pl-0", "data-toggle" => "modal" %>
+                    </em>
                   <% end %>
                 </li>
               <% end %>
