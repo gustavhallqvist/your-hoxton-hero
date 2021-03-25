@@ -1,5 +1,11 @@
-<div class="container border border-primary">
-  <h2><%= task.category.name %></h2>
-  <p><%= task.date.strftime('%Y-%M-%D') %></p>
-  <p><%= task.address %></p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= task.category.name %></h5>
+    <p class="card-text">
+      <%= task.date.strftime("%l:%M%p on %d %b %Y") %>
+      <br>
+      <%= task.address %>
+    </p>
+    <%= render "bookings/form", task: task, booking: Booking.new %>
+  </div>
 </div>
