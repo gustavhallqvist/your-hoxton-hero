@@ -20,6 +20,8 @@
                   required: true,
                   input_html: { autocomplete: "contact number" } %>
       <%= f.input :date_of_birth,
+                  start_year: Date.today.year - 121,
+                  end_year: Date.today.year,
                   required: true,
                   input_html: { autocomplete: "date of birth" } %>
       <%= f.input :bio,
