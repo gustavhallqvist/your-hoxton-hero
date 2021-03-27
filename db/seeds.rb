@@ -74,6 +74,7 @@ user.save
 puts "Succesfully created #{User.count} Users"
 
 puts 'Creating Tasks'
+Task.create(user_id: 8, category_id: 8, description: 'Need someone to walk my dog while I am at work', date: DateTime.parse('25th Mar 2021 12:00:00+00:00'), address: 'Wenlock Street, Hoxton')
 Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('20th Mar 2021 15:00:00+00:00'), address: 'Diss Street, Hoxton')
 Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('20th Mar 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
 Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('21st Mar 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
@@ -126,7 +127,6 @@ TaskReview.create(user_id: 10, task_id: 1, rating: 4, comment: "No problems!")
 TaskReview.create(user_id: 8, task_id: 2, rating: 5, comment: "The kids were absolute angels")
 TaskReview.create(user_id: 9, task_id: 3, rating: 4, comment: "Great guy!")
 TaskReview.create(user_id: 8, task_id: 4, rating: 4, comment: "Lovely lady!")
-TaskReview.create(user_id: 11, task_id: 5, rating: 5, comment: "Super friendly!")
 TaskReview.create(user_id: 10, task_id: 6, rating: 4, comment: "Lovely man!")
 TaskReview.create(user_id: 11, task_id: 7, rating: 4, comment: "Kids were hilarious")
 TaskReview.create(user_id: 7, task_id: 8, rating: 5, comment: "He's a sweetheart")
