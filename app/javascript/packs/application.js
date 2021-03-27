@@ -39,5 +39,41 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initUpdateNavbarOnScroll();
   initFlatpickr();
-  $('[data-toggle="tooltip"]').tooltip()
+  if ($('[data-toggle="tooltip"]')) {
+    $('[data-toggle="tooltip"]').tooltip()
+  }
+
+  // (function() {
+  // var stripe = Stripe('pk_test_51IUYBDF6fb1ssZ6XrTPROGliDipM0q1mSF21PybUl5j30Ktv02CCnrgTsod5gdJ6Abk0EFhNlxTGvDDoymaRaJjD00N9RN4gOx');
+
+  // var checkoutButton = document.getElementById('checkout-button-price_1IVgVCF6fb1ssZ6XpGxVWg5j');
+  // checkoutButton.addEventListener('click', function () {
+  //   /*
+  //    * When the customer clicks on the button, redirect
+  //    * them to Checkout.
+  //    */
+  //   stripe.redirectToCheckout({
+  //     lineItems: [{price: 'price_1IVgVCF6fb1ssZ6XpGxVWg5j', quantity: 1}],
+  //     mode: 'payment',
+
+  //      * Do not rely on the redirect to the successUrl for fulfilling
+  //      * purchases, customers may not always reach the success_url after
+  //      * a successful payment.
+  //      * Instead use one of the strategies described in
+  //      * https://stripe.com/docs/payments/checkout/fulfill-orders
+
+  //     successUrl: 'http://www.yourhoxtonhero.com/donations',
+  //     cancelUrl: 'http://www.yourhoxtonhero.com/nondonations',
+  //   })
+  //   .then(function (result) {
+  //     if (result.error) {
+  //       /*
+  //        * If `redirectToCheckout` fails due to a browser or network
+  //        * error, display the localized error message to your customer.
+  //        */
+  //       var displayError = document.getElementById('error-message');
+  //       displayError.textContent = result.error.message;
+  //     }
+  //   });
+  // });
 });
