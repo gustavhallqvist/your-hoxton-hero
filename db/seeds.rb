@@ -119,7 +119,8 @@ Booking.create(user_id: 9, task_id: 14, status: false)
 Booking.create(user_id: 11, task_id: 15, status: false)
 Booking.create(user_id: 7, task_id: 16, status: false)
 Booking.create(user_id: 10, task_id: 14, status: false)
-Booking.create(user_id: 11, task_id: 17, status: true)
+Booking.create(user_id: 10, task_id: 17, status: true)
+Booking.create(user_id: 10, task_id: 4, status: false)
 
 puts "Succesfully created #{Booking.count} Bookings"
 
