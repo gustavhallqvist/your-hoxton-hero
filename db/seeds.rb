@@ -74,7 +74,7 @@ user.save
 puts "Succesfully created #{User.count} Users"
 
 puts 'Creating Tasks'
-Task.create(user_id: 8, category_id: 8, description: 'Need someone to walk my dog while I am at work', date: DateTime.parse('25th Mar 2021 12:00:00+00:00'), address: 'Wenlock Street, Hoxton')
+
 Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('20th Mar 2021 15:00:00+00:00'), address: 'Diss Street, Hoxton')
 Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('20th Mar 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
 Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('21st Mar 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
@@ -91,6 +91,7 @@ Task.create(user_id: 6, category_id: 9, description: 'Will someone please take m
 Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('27th Mar 2021 19:00:00+00:00'), address: 'Silvia Court, Hoxton')
 Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('30th Mar 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
 Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('30th Mar 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
+Task.create(user_id: 8, category_id: 8, description: 'Need someone to walk my dog while I am at work', date: DateTime.parse('25th Mar 2021 12:00:00+00:00'), address: 'Wenlock Street, Hoxton')
 
 puts "Succesfully created #{Task.count} Tasks"
 
