@@ -69,7 +69,7 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <%= simple_form_for [ task.bookings.where(status: true).first, @booking_review ] do |f| %>
+                              <%= simple_form_for [ task.bookings.where(status: true).first, @booking_review ], remote: true do |f| %>
                                 <%= f.input :rating, label: "Rating ⭐️", input_html: { min: '0', max: '5', step: 'any' } %>
                                 <%= f.input :comment %>
                             </div>

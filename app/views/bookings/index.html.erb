@@ -56,7 +56,7 @@
                   <%= link_to booking.task.category.name.upcase, booking_path(booking) %>
                   <%= booking.task.date.strftime("at %l:%M%p on %d %b %Y") %>
                   <% if booking.task.task_review %>
-                    - <em><% booking.task.task_review.rating.times do %>&#11088<% end %></em>
+                    - <em><% booking.task.task_review.rating.times do %><i class="fas fa-star" style="color: #FACC55"></i><% end %></em>
                   <% else %>
                     - <em>
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -69,7 +69,7 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <%= simple_form_for [ booking.task, @task_review ] do |f| %>
+                              <%= simple_form_for [ booking.task, @task_review ], remote: true do |f| %>
                                 <%= f.input :rating, label: "Rating ⭐️", input_html: { min: '0', max: '5', step: 'any' } %>
                                 <%= f.input :comment %>
                             </div>
