@@ -27,7 +27,7 @@
             <p class="hero-age"> <%= ((@current_date - booking.user.date_of_birth).to_i)/365.25.to_i %> years old </p>
             <% sum = 0 %>
             <% reviews = 0 %>
-            <% booking.user.bookings.each do %>
+            <% booking.user.bookings.each do |booking| %>
               <% if booking.booking_review %>
                 <% sum += booking.booking_review.rating %>
                 <% reviews += 1 %>
