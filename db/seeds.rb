@@ -58,15 +58,15 @@ user = User.new(email: 'luke@gmail.com', password: 'yourhoxtonhero', name: 'Luke
 user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'senior_4.jpg')), filename: 'senior_4.jpg')
 user.save
 
-user = User.new(email: 'mary@gmail.com', password: 'yourhoxtonhero', name: 'Mary', surname: 'Magdalene', address: 'Hoxton, London', contact_number: '07775127592', date_of_birth: Date.parse("18/06/1988"), bio: 'Looking to give back to my local community', disability: 'None',   admin: false)
+user = User.new(email: 'Jack@gmail.com', password: 'yourhoxtonhero', name: 'Jack', surname: 'Rivers', address: 'Wenlock Street, Hoxton', contact_number: '07775127592', date_of_birth: Date.parse("18/06/1988"), bio: 'Single man living in Hoxton with his golden retriever. Looking to help others and give back to my local community', disability: 'None',   admin: false)
 user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'old_lady_3.jpg')), filename: 'old_lady_3.jpg')
 user.save
 
-user = User.new(email: 'louisa@yahoo.com', password: 'yourhoxtonhero', name: 'Louisa', surname: 'Peers', address: 'Clapham, London' , contact_number: '07775127989', date_of_birth: Date.parse("12/12/1995"), bio: 'Happy to help anyone with anything', disability: 'None',   admin: false)
+user = User.new(email: 'gustav@gmail.com', password: 'yourhoxtonhero', name: 'Gustav', surname: 'Hallqvist', address: 'Fanshaw Street, Hoxton' , contact_number: '07775127989', date_of_birth: Date.parse("17/01/1995"), bio: 'Happy to help anyone with anything', disability: 'None',   admin: false)
 user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'old_lady_4.jpg')), filename: 'old_lady_4.jpg')
 user.save
 
-user = User.new(email: 'ollie@yahoo.com', password: 'yourhoxtonhero', name: 'Ollie', surname: 'Xu', address: 'Bermondsey, Lonon', contact_number: '07775127378', date_of_birth: Date.parse("30/06/1981"), bio: 'Love helping others in my spare time', disability: 'None' ,   admin: false)
+user = User.new(email: 'kirstmccabe@gmail.com', password: 'yourhoxtonhero', name: 'Kirsti', surname: 'Mccabe', address: 'Chart Street, Hoxton', contact_number: '07775127378', date_of_birth: Date.parse("12/04/1978"), bio: 'Love helping others in my spare time', disability: 'None' ,   admin: false)
 user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'senior_5.jpg')), filename: 'senior_5.jpg')
 user.save
 
@@ -82,7 +82,7 @@ Task.create(user_id: 6, category_id: 9, description: 'Will someone please take m
 Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('20th Mar 2021 19:00:00+00:00'), address: 'Chart Street, Hoxton')
 Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('23rd Mar 2021 17:00:00+00:00'), address: 'Rushton Street, Hoxton')
 Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('23rd Mar 2021 19:00:00+00:00'), address: 'Bath Street, Hoxton')
-Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('27th Mar 2021 15:00:00+00:00'), address: 'Mora Street, Hoxton')
+Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('27th Mar 2021 15:00:00+00:00'), address: 'Purcell Street, Hoxton')
 Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('27th Mar 2021 17:00:00+00:00'), address: 'Elizabeth Avenue, Hoxton')
 Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('28th Mar 2021 19:00:00+00:00'), address: 'Murray Grove, Hoxton')
 Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('29th Mar 2021 12:00:00+00:00'), address: 'Taplow Street, Hoxton')
@@ -124,11 +124,11 @@ puts 'Creating Task Reviews'
 
 TaskReview.create(user_id: 10, task_id: 1, rating: 4, comment: "No problems!")
 TaskReview.create(user_id: 8, task_id: 2, rating: 5, comment: "The kids were absolute angels")
-TaskReview.create(user_id: 9, task_id: 3, rating: 3, comment: "Fussy eater")
-TaskReview.create(user_id: 8, task_id: 4, rating: 2, comment: "Should be reaching out to an engineer for these requests")
+TaskReview.create(user_id: 9, task_id: 3, rating: 4, comment: "Great guy!")
+TaskReview.create(user_id: 8, task_id: 4, rating: 4, comment: "Lovely lady!")
 TaskReview.create(user_id: 11, task_id: 5, rating: 5, comment: "Super friendly!")
 TaskReview.create(user_id: 10, task_id: 6, rating: 4, comment: "Lovely man!")
-TaskReview.create(user_id: 11, task_id: 7, rating: 2, comment: "Kids were very naughty")
+TaskReview.create(user_id: 11, task_id: 7, rating: 4, comment: "Kids were hilarious")
 TaskReview.create(user_id: 7, task_id: 8, rating: 5, comment: "He's a sweetheart")
 
 puts "Succesfully created #{TaskReview.count} Task Reviews"
@@ -138,10 +138,10 @@ puts 'Creating Booking Reviews'
 BookingReview.create(user_id: 3, booking_id: 2, rating: 3, comment: "Did a good job" )
 BookingReview.create(user_id: 4, booking_id: 3, rating: 5, comment: "What would I do without you?")
 BookingReview.create(user_id: 6, booking_id: 5, rating: 4, comment: "Very helpful!")
-BookingReview.create(user_id: 5, booking_id: 6, rating: 2, comment: "Not very friendly")
+BookingReview.create(user_id: 5, booking_id: 6, rating: 4, comment: "Super nice!")
 BookingReview.create(user_id: 2, booking_id: 7, rating: 5, comment: "An angel!")
 BookingReview.create(user_id: 3, booking_id: 9, rating: 4, comment: "Very nice person")
-BookingReview.create(user_id: 4, booking_id: 10, rating: 3, comment: "Ok")
+BookingReview.create(user_id: 4, booking_id: 10, rating: 3, comment: "Fine")
 BookingReview.create(user_id: 4, booking_id: 11, rating: 4, comment: "Thank you!")
 
 puts "Succesfully created #{BookingReview.count} Booking Reviews"
