@@ -34,7 +34,7 @@ User.create(email: 'admin@yourhoxtonhero.com', password: 'yourhoxtonhero', name:
 
 puts 'Creating Users'
 
-user = User.new(email: 'bob@gmail.com', password: 'yourhoxtonhero', name: 'Bob', surname: 'Wallace' , address: 'Fulham, London', contact_number: '07775127846', date_of_birth: Date.parse("10/10/1954"), bio: 'Single man living along in Fulham', disability: 'None',   admin: false)
+user = User.new(email: 'bob@gmail.com', password: 'yourhoxtonhero', name: 'Bob', surname: 'Wallace' , address: 'Fulham, London', contact_number: '07775127846', date_of_birth: Date.parse("10/10/1954"), bio: 'Single man living alone in Fulham with back problems', disability: 'None',   admin: false)
 user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'senior_1.jpg')), filename: 'senior_1.jpg')
   user.save
 
@@ -74,22 +74,22 @@ user.save
 puts "Succesfully created #{User.count} Users"
 
 puts 'Creating Tasks'
-Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('20th Mar 2021 15:00:00+00:00'), address: 'Fulham, London')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('20th Mar 2021 17:00:00+00:00'), address: 'Brixton, London')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('21st Mar 2021 19:00:00+00:00'), address: 'Shoreditch, London')
-Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('22nd Mar 2021 12:00:00+00:00'), address: 'Clapham, London')
-Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('21st Mar 2021 16:00:00+00:00'), address: 'Bermondsey, London')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('20th Mar 2021 19:00:00+00:00'), address: 'Shoreditch, London')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('23rd Mar 2021 17:00:00+00:00'), address: 'Brixton, London')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('23rd Mar 2021 19:00:00+00:00'), address: 'Shoreditch, London')
-Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('27th Mar 2021 15:00:00+00:00'), address: 'Fulham, London')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('27th Mar 2021 17:00:00+00:00'), address: 'Brixton, London')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('28th Mar 2021 19:00:00+00:00'), address: 'Shoreditch, London')
-Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('29th Mar 2021 12:00:00+00:00'), address: 'Clapham, London')
-Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('28th Mar 2021 16:00:00+00:00'), address: 'Bermondsey, London')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('27th Mar 2021 19:00:00+00:00'), address: 'Shoreditch, London')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('30th Mar 2021 17:00:00+00:00'), address: 'Brixton, London')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('30th Mar 2021 19:00:00+00:00'), address: 'Shoreditch, London')
+Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('20th Mar 2021 15:00:00+00:00'), address: 'Diss Street, Hoxton')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('20th Mar 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('21st Mar 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
+Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('22nd Mar 2021 12:00:00+00:00'), address: 'Chart Street, Hoxton')
+Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('21st Mar 2021 16:00:00+00:00'), address: 'Nile Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('20th Mar 2021 19:00:00+00:00'), address: 'Chart Street, Hoxton')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('23rd Mar 2021 17:00:00+00:00'), address: 'Rushton Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('23rd Mar 2021 19:00:00+00:00'), address: 'Bath Street, Hoxton')
+Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('27th Mar 2021 15:00:00+00:00'), address: 'Mora Street, Hoxton')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('27th Mar 2021 17:00:00+00:00'), address: 'Elizabeth Avenue, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('28th Mar 2021 19:00:00+00:00'), address: 'Murray Grove, Hoxton')
+Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('29th Mar 2021 12:00:00+00:00'), address: 'Taplow Street, Hoxton')
+Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('28th Mar 2021 16:00:00+00:00'), address: 'Wenlock Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('27th Mar 2021 19:00:00+00:00'), address: 'Silvia Court, Hoxton')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('30th Mar 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('30th Mar 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
 
 puts "Succesfully created #{Task.count} Tasks"
 
