@@ -39,7 +39,7 @@ user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'sen
   user.save
 
 user = User.new(email: 'sarah@gmail.com', password: 'yourhoxtonhero', name: 'Sarah', surname: 'Mayles', address: 'Hoxton, London', contact_number: '07775127566', date_of_birth: Date.parse("04/09/1979"), bio: 'Single mother with 3 kids and a full-time job', disability: 'None',   admin: false)
-user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'old_lady_1.jpg')), filename: 'ld_lady_1.jpg')
+user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'old_lady_1.jpg')), filename: 'old_lady_1.jpg')
   user.save
 
 user = User.new(email: 'will@gmail.com', password: 'yourhoxtonhero', name: 'Will', surname: 'Hill' , address: 'Shoreditch, London', contact_number: '07773327846', date_of_birth: Date.parse("22/04/1982"), bio: 'Suffering with Cerebral Palsy' , disability: 'Cerebral Palsy',   admin: false)
@@ -55,19 +55,19 @@ user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'sen
  user.save
 
 user = User.new(email: 'luke@gmail.com', password: 'yourhoxtonhero', name: 'Luke', surname: 'Tate' , address: 'Fulham, London', contact_number: '07775127877', date_of_birth: Date.parse("11/05/1993"), bio: 'Looking to help people in need', disability: 'None',   admin: false)
-user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'senior_4.jpg')), filename: 'senior_4.jpg')
+user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'young_man_1.jpg')), filename: 'young_man_1.jpg')
 user.save
 
 user = User.new(email: 'Jack@gmail.com', password: 'yourhoxtonhero', name: 'Jack', surname: 'Rivers', address: 'Wenlock Street, Hoxton', contact_number: '07775127592', date_of_birth: Date.parse("18/06/1988"), bio: 'Single man living in Hoxton with his golden retriever. Looking to help others and give back to my local community', disability: 'None',   admin: false)
-user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'old_lady_3.jpg')), filename: 'old_lady_3.jpg')
+user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'jack_avatar.jpg')), filename: 'jack_avatar.jpg')
 user.save
 
 user = User.new(email: 'gustav@gmail.com', password: 'yourhoxtonhero', name: 'Gustav', surname: 'Hallqvist', address: 'Fanshaw Street, Hoxton' , contact_number: '07775127989', date_of_birth: Date.parse("17/01/1995"), bio: 'Happy to help anyone with anything', disability: 'None',   admin: false)
-user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'old_lady_4.jpg')), filename: 'old_lady_4.jpg')
+user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'gustav_avatar.jpeg')), filename: 'gustav_avatar.jpeg')
 user.save
 
 user = User.new(email: 'kirstmccabe@gmail.com', password: 'yourhoxtonhero', name: 'Kirsti', surname: 'Mccabe', address: 'Chart Street, Hoxton', contact_number: '07775127378', date_of_birth: Date.parse("12/04/1978"), bio: 'Love helping others in my spare time', disability: 'None' ,   admin: false)
-user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'senior_5.jpg')), filename: 'senior_5.jpg')
+user.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'kirsti_avatar.jpeg')), filename: 'kirsti_avatar.jpeg')
 user.save
 
 
@@ -75,23 +75,23 @@ puts "Succesfully created #{User.count} Users"
 
 puts 'Creating Tasks'
 
-Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('20th Mar 2021 15:00:00+00:00'), address: 'Diss Street, Hoxton')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('20th Mar 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('21st Mar 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
-Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('22nd Mar 2021 12:00:00+00:00'), address: 'Chart Street, Hoxton')
-Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('21st Mar 2021 16:00:00+00:00'), address: 'Nile Street, Hoxton')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('20th Mar 2021 19:00:00+00:00'), address: 'Chart Street, Hoxton')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('23rd Mar 2021 17:00:00+00:00'), address: 'Rushton Street, Hoxton')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('23rd Mar 2021 19:00:00+00:00'), address: 'Bath Street, Hoxton')
-Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('27th Mar 2021 15:00:00+00:00'), address: 'Purcell Street, Hoxton')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('27th Mar 2021 17:00:00+00:00'), address: 'Elizabeth Avenue, Hoxton')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('28th Mar 2021 19:00:00+00:00'), address: 'Murray Grove, Hoxton')
-Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('29th Mar 2021 12:00:00+00:00'), address: 'Taplow Street, Hoxton')
-Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('28th Mar 2021 16:00:00+00:00'), address: 'Wenlock Street, Hoxton')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('27th Mar 2021 19:00:00+00:00'), address: 'Silvia Court, Hoxton')
-Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('30th Mar 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
-Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('30th Mar 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
-Task.create(user_id: 8, category_id: 8, description: 'Need someone to walk my dog while I am at work', date: DateTime.parse('25th Mar 2021 12:00:00+00:00'), address: 'Wenlock Street, Hoxton')
+Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('18th Apr 2021 15:00:00+00:00'), address: 'Diss Street, Hoxton')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('18th Apr 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('19th Apr 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
+Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('20th Apr 2021 12:00:00+00:00'), address: 'Chart Street, Hoxton')
+Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('19th Apr 2021 16:00:00+00:00'), address: 'Nile Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('18th Apr 2021 19:00:00+00:00'), address: 'Chart Street, Hoxton')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('21st Apr 2021 17:00:00+00:00'), address: 'Rushton Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('21st Apr 2021 19:00:00+00:00'), address: 'Bath Street, Hoxton')
+Task.create(user_id: 2, category_id: 3, description: 'Need someone to drive me to a doctors appointment', date: DateTime.parse('25th Apr 2021 15:00:00+00:00'), address: 'Purcell Street, Hoxton')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('25th Apr 2021 17:00:00+00:00'), address: 'Elizabeth Avenue, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('26th Apr 2021 19:00:00+00:00'), address: 'Murray Grove, Hoxton')
+Task.create(user_id: 5, category_id: 1, description: 'Need someone to help me with my computer', date: DateTime.parse('27th Apr 2021 12:00:00+00:00'), address: 'Taplow Street, Hoxton')
+Task.create(user_id: 6, category_id: 9, description: 'Will someone please take me out for some fresh air', date: DateTime.parse('26th Apr 2021 16:00:00+00:00'), address: 'Wenlock Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('25th Apr 2021 19:00:00+00:00'), address: 'Silvia Court, Hoxton')
+Task.create(user_id: 3, category_id: 7, description: 'Need someone to pick up my kids from school today', date: DateTime.parse('28th Apr 2021 17:00:00+00:00'), address: 'Bevenden Street, Hoxton')
+Task.create(user_id: 4, category_id: 4, description: 'Need someone to cook and feed me dinner', date: DateTime.parse('28th Apr 2021 19:00:00+00:00'), address: 'Fanshaw Street, Hoxton')
+Task.create(user_id: 8, category_id: 8, description: 'Need someone to walk my dog while I am at work', date: DateTime.parse('23rd Apr 2021 12:00:00+00:00'), address: 'Wenlock Street, Hoxton')
 
 puts "Succesfully created #{Task.count} Tasks"
 
